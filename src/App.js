@@ -1,18 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Accordion from "./components/Accordion";
-import Buttons from "./components/Buttons";
-import Carousel from "./components/Carousel";
-import Dropdown from "./components/Dropdown";
-import Listgroup from "./components/Listgroup";
-import Modal from "./components/Modal";
-import Navbar from "./components/Navbar";
-import Coullapse from "./components/Collapse";
+// import Accordion from "./components/Accordion";
+// import Buttons from "./components/Buttons";
+// import Carousel from "./components/Carousel";
+// import Dropdown from "./components/Dropdown";
+// import Listgroup from "./components/Listgroup";
+// import Modal from "./components/Modal";
+// import Navbar from "./components/Navbar";
+// import Coullapse from "./components/Collapse";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Accordion />} />
           <Route path="/Buttons" element={<Buttons />} />
@@ -23,7 +25,9 @@ function App() {
           <Route path="/Modal" element={<Modal />} />
           <Route path="/Navbar" element={<Navbar />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Header />
+      <Footer />
     </>
   );
 }
