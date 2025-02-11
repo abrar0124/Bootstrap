@@ -32,10 +32,10 @@ function Buttons() {
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item">child dropdown</a>
+              <a class="dropdown-item">child dropdown1</a>
             </li>
             <li>
-              <a class="dropdown-item">child dropdown</a>
+              <a class="dropdown-item">child dropdown2</a>
             </li>
           </ul>
         </div>
