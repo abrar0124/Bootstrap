@@ -1,0 +1,30 @@
+.hover-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+  border: none;
+}
+.hover-shadow:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.custom-text {
+  cursor: pointer;
+}
+
+.custom-hover:hover {
+  text-decoration: underline;
+}
+.custom-color {
+  cursor: pointer;
+  font-size: 10px;
+}
+.custom-color:hover {
+  color: rgb(5, 168, 168);
+}
+.custom-footer {
+  background-color: rgb(46, 46, 46);
+}
+.custom-p {
+  color: rgb(61, 189, 240);
+  font-size: 20px;
+  margin-top: 20px;
+}

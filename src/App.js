@@ -10,24 +10,19 @@ import "./App.css";
 // import Coullapse from "./components/Collapse";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Gallery from "./components/Gallery";
+import Details from "./components/Detials";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Accordion />} />
-          <Route path="/Buttons" element={<Buttons />} />
-          <Route path="/Carousel" element={<Carousel />} />
-          <Route path="/Collapse" element={<Coullapse />} />
-          <Route path="/Dropdown" element={<Dropdown />} />
-          <Route path="/List group" element={<Listgroup />} />
-          <Route path="/Modal" element={<Modal />} />
-          <Route path="/Navbar" element={<Navbar />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/details/:id" element={<Details />} />
         </Routes>
-      </BrowserRouter> */}
-      <Header />
-      <Footer />
+      </BrowserRouter>
     </>
   );
 }
