@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Header() {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-light  p-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           Navbar
@@ -64,11 +64,6 @@ function Header() {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
             </li>
           </ul>
           <form class="d-flex" role="search">
