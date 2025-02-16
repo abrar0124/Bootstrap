@@ -65,7 +65,7 @@ const Gallery = () => {
                     />
                   </Link>
                   <div className="d-flex flex-wrap mt-2">
-                    {hotel.gallery.slice(0, 5).map((image, index) => (
+                    {hotel.gallery.slice(0, 11).map((image, index) => (
                       <img
                         key={index}
                         src={image}
