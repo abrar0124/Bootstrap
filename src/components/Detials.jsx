@@ -69,7 +69,7 @@ const Details = () => {
 
         {/* Highlights Section */}
         <div className="d-flex flex-wrap">
-          <div className=" mt-2 p-3 " style={{ width: "65%" }}>
+          <div className=" mt-4 p-3">
             <div className=" row">
               <div
                 className="border p-3"
@@ -126,7 +126,7 @@ const Details = () => {
           {/* Facilities Section */}
 
           {/* Right Side: Ratings & Map */}
-          <div className="col-md-4 mt-4 ms-3">
+          <div className="col-md-4 mt-5 ms-3 w-100">
             <div className="border p-3 rounded shadow-sm">
               <h5 className="fw-bold">{hotel.rating} Very Good</h5>
               <p className="text-muted">{hotel.reviews} reviews</p>
