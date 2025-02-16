@@ -2,102 +2,134 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import hotels from "./Hotels";
+import "./customscss.scss";
 
 const Gallery = () => {
   return (
-    <>
-      {hotels.map((hotel) => (
-        <div
-          key={hotel.id}
-          className="container card shadow-sm mt-5 p-4"
-          style={{ width: "60%", cursor: "pointer" }}
-        >
-          <div className="row g-0">
-            <div className="col-md-4">
-              <Link to={`/details/${hotel.id}`}>
-                <img
-                  src={hotel.mainImage}
-                  className="img-fluid rounded-start"
-                  alt={hotel.name}
-                />
-              </Link>
-              <div className="d-flex flex-wrap mt-2">
-                {hotel.gallery.slice(0, 11).map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    className="img-thumbnail me-1"
-                    width="60"
-                    height="60"
-                    alt="Gallery"
-                  />
-                ))}
-
-                <Link className="btn btn-lg" to={`/details/${hotel.id}`}>
-                  See all
-                </Link>
+    <div className="container mt-4">
+      <h2 className="fw-medium" style={{ marginLeft: "8%" }}>
+        Hotels in London
+      </h2>
+      <div className="row">
+        <div className="col-md-3 ">
+          <div
+            className="card p-3 "
+            style={{ width: "70%", marginLeft: "34%" }}
+          >
+            <h5>Star rating</h5>
+            {[5, 4, 3, 2, 1].map((star) => (
+              <div className="form-check lh-lg ">
+                <input className=" form-check-input" type="checkbox" />
+                <label className=" form-check-label">{star} stars</label>
               </div>
-            </div>
-
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title fs-4 fw-bold">{hotel.name}</h5>
-
-                <p className="text-warning mb-1">
-                  ★★★★☆{" "}
-                  <span className="text-primary fs-5">{hotel.location}</span>
-                  <a href="#" className="ms-2 navbar-brand text-primary">
-                    - View on map
-                  </a>
-                </p>
-
-                <div className="mb-2">
-                  <span className="badge bg-light text-dark me-1">
-                    Internet Access
-                  </span>
-                  <span className="badge bg-light text-dark me-1">
-                    Car park
-                  </span>
-                  <span className="badge bg-light text-dark me-1">
-                    Front desk (24-hour)
-                  </span>
-                  <span className="badge bg-primary">+5</span>
+            ))}
+            <h5 className="mt-3">Review score</h5>
+            {["Exceptional 9+", "Very good 8+", "Good 7+", "Pleasant 6+"].map(
+              (score, index) => (
+                <div className="lh-lg  form-check" key={index}>
+                  <input className=" form-check-input" type="checkbox" />
+                  <label className="form-check-label">{score}</label>
                 </div>
+              )
+            )}
+          </div>
+        </div>
+        <div className="col-md-9">
+          <div className="btn-group mb-3 w-100">
+            <button className=" p-3 btn btn-primary border btn-lg ">
+              Our top picks
+            </button>
+            <button className="custom-btn p-3 btn border btn-lg ">
+              Lowest price first
+            </button>
+            <button className="custom-btn p-3 btn border btn-lg ">
+              Nearest to ▼
+            </button>
+            <button className="custom-btn p-3 btn border btn-lg ">
+              Best reviewed
+            </button>
+          </div>
 
-                <p className="card-text text-muted">
-                  "Can't beat this for the price in a London hotel."
-                </p>
-                <p>average price per night</p>
-
-                <div style={{ marginLeft: "80%" }}>
-                  <div>
-                    <span className="text-muted">Very good</span>
-                    <br />
-                    <small className="text-muted ms-1 fs-5">
-                      {hotel.reviews} reviews
-                    </small>
-                    <p className="text-danger fw-bold mb-1">{hotel.price}</p>
-
+          {hotels.map((hotel) => (
+            <div key={hotel.id} className="card mb-4 p-3 shadow-sm">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <Link
+                    to={`/details/${hotel.id}`}
+                    className="hover-bg-primary"
+                  >
+                    <img
+                      src={hotel.mainImage}
+                      className="img-fluid rounded"
+                      alt={hotel.name}
+                    />
+                  </Link>
+                  <div className="d-flex flex-wrap mt-2">
+                    {hotel.gallery.slice(0, 5).map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        className="img-thumbnail me-1"
+                        width="50"
+                        height="50"
+                        alt="Gallery"
+                      />
+                    ))}
                     <Link
-                      className="btn  btn-primary btn-lg"
+                      className="btn btn-sm btn-secondary hover-bg-primary"
                       to={`/details/${hotel.id}`}
                     >
-                      availability
+                      See all
                     </Link>
                   </div>
                 </div>
+                <div className="col-md-5">
+                  <div className="card-body">
+                    <h5 className="card-title fw-bold">{hotel.name}</h5>
+                    <p className="text-warning mb-1">★★★★☆</p>
+                    <p>
+                      <span className="text-primary">{hotel.location}</span>
+                      <Link
+                        to="#"
+                        className="ms-2 text-decoration-none text-primary hover-bg-primary"
+                      >
+                        - View on map
+                      </Link>
+                    </p>
+                    <p className="text-muted">{hotel.discription}</p>
+                    <div>
+                      <span className="badge bg-light text-dark me-1">
+                        Free Wi-Fi
+                      </span>
+                      <span className="badge bg-light text-dark me-1">
+                        Car park
+                      </span>
+                      <span className="badge bg-light text-dark me-1">
+                        Front desk (24-hour)
+                      </span>
+                      <span className="badge bg-primary">+5</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-3 border-start  d-flex flex-column justify-content-center align-items-end pe-3">
+                  <span className="text-muted">Very good</span>
+                  <span className="fs-5 text-primary fw-bold">
+                    {hotel.rating}
+                  </span>
+                  <p className="text-danger fw-bold fs-4">{hotel.price}</p>
+                  <Link
+                    className="btn btn-primary btn-lg hover-bg-primary"
+                    to={`/details/${hotel.id}`}
+                  >
+                    Check availability
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
-
-      <div className="d-flex justify-content-center">
-        <button className="btn btn-primary mt-4" style={{ width: "60%" }}>
-          See all 27642 hotels in London
-        </button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,179 +1,13 @@
-// // // import React from "react";
-// // // import { Link, useLocation } from "react-router-dom";
-// // // import "bootstrap/dist/css/bootstrap.min.css";
-
-// // // const hotel = {
-// // //   name: "Britannia International Hotel Canary Wharf",
-// // //   location: "Canary Wharf, London",
-// // //   images: [
-// // //     "/Images/hotel1.webp",
-// // //     "/Images/hotel2.webp",
-// // //     "/Images/hotel3.jpg",
-// // //     "/Images/hotel4.webp",
-// // //     "/Images/hotel5.webp",
-// // //     "/Images/hotel6.jpg",
-// // //     "/Images/hotel7.webp",
-// // //     "/Images/hotel8.jpg",
-// // //   ],
-// // // };
-
-// // // const Details = () => {
-// // //   const location = useLocation();
-// // //   const mainImage = location.state?.mainImage || hotel.images[0]; // Default to first image if no state
-
-// // //   return (
-// // //     <div className="container mt-4">
-// // //       {/* Breadcrumb */}
-// // //       <nav aria-label="breadcrumb">
-// // //         <ol className="breadcrumb">
-// // //           <li className="breadcrumb-item">
-// // //             <Link to="/">Home</Link>
-// // //           </li>
-// // //           <li className="breadcrumb-item">
-// // //             <Link to="/">United Kingdom Hotels</Link>
-// // //           </li>
-// // //           <li className="breadcrumb-item">
-// // //             <Link to="/">London Hotels</Link>
-// // //           </li>
-// // //           <li className="breadcrumb-item active" aria-current="page">
-// // //             {hotel.name}
-// // //           </li>
-// // //         </ol>
-// // //       </nav>
-
-// // //       {/* Image Gallery */}
-// // //       <div className="d-flex  gap-5">
-// // //         {/* Main Image */}
-// // //         <div className="">
-// // //           <img
-// // //             src={mainImage}
-// // //             alt="Main Hotel"
-// // //             className="img-fluid rounded shadow "
-// // //           />
-// // //         </div>
-
-// // //         {/* Gallery Images with Flexbox */}
-
-// // //         <div className="col-md-4">
-// // //           <div className="d-flex flex-wrap gap-5 w-100">
-// // //             {hotel.images.slice(1, 11).map((img, index) => (
-// // //               <div key={index} className=" img-fluid w-25 ">
-// // //                 <img
-// // //                   src={img}
-// // //                   alt="Gallery"
-// // //                   className="img-fluid rounded shadow "
-// // //                   style={{ height: "100px", objectFit: "cover" }}
-// // //                 />
-// // //               </div>
-// // //             ))}
-// // //           </div>
-// // //         </div>
-// // //       </div>
-
-// // //       {/* Back Button */}
-// // //       <Link to="/" className="btn btn-secondary mt-3">
-// // //         🔙 Back to Gallery
-// // //       </Link>
-// // //     </div>
-// // //   );
-// // // };
-
-// // // export default Details;
-
-// // import React from "react";
-// // import { Link, useLocation } from "react-router-dom";
-// // import "bootstrap/dist/css/bootstrap.min.css";
-
-// // const Details = () => {
-// //   const location = useLocation();
-// //   const hotel = location.state?.hotel;
-
-// //   if (!hotel) return <h2 className="text-center">No hotel data available</h2>;
-
-// //   return (
-// //     <div className="container mt-4">
-// //       <nav aria-label="breadcrumb">
-// //         <ol className="breadcrumb">
-// //           <li className="breadcrumb-item">
-// //             <Link to="/">Home</Link>
-// //           </li>
-// //           <li className="breadcrumb-item">
-// //             <Link to="/">United Kingdom Hotels</Link>
-// //           </li>
-// //           <li className="breadcrumb-item">
-// //             <Link to="/">London Hotels</Link>
-// //           </li>
-// //           <li className="breadcrumb-item active" aria-current="page">
-// //             {hotel.name}
-// //           </li>
-// //         </ol>
-// //       </nav>
-
-// //       <div className="d-flex gap-5">
-// //         <div>
-// //           <img
-// //             src={hotel.mainImage}
-// //             alt="Main Hotel"
-// //             className="img-fluid rounded shadow"
-// //           />
-// //         </div>
-
-// //         <div className="col-md-4">
-// //           <div className="d-flex flex-wrap gap-5 w-100">
-// //             {hotel.gallery.map((img, index) => (
-// //               <div key={index} className="img-fluid w-25">
-// //                 <img
-// //                   src={img}
-// //                   alt="Gallery"
-// //                   className="img-fluid rounded shadow"
-// //                   style={{ height: "100px", objectFit: "cover" }}
-// //                 />
-// //               </div>
-// //             ))}
-// //           </div>
-// //         </div>
-// //       </div>
-
-// //       <Link to="/" className="btn btn-secondary mt-3">
-// //         🔙 Back to Gallery
-// //       </Link>
-// //     </div>
-// //   );
-// // };
-
-// // export default Details;
-
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import hotels from "./Hotels"; // Import the hotels data
-
-// const Details = () => {
-//   const { id } = useParams(); // Get the ID from URL
-//   const hotel = hotels.find((h) => h.id === parseInt(id)); // Find hotel by ID
-
-//   if (!hotel) {
-//     return <h2 className="text-center mt-5">Hotel not found!</h2>;
-//   }
-
-//   return (
-//     <div className="container mt-4">
-//       <h2>{hotel.name}</h2>
-//       <p>Location: {hotel.location}</p>
-//       <img src={hotel.mainImage} alt={hotel.name} className="img-fluid" />
-//       <img src={hotel.gallery} alt={hotel.name} className="img-fluid" />
-//     </div>
-//   );
-// };
-
-// export default Details;
-
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import hotels from "./Hotels"; // Import the hotels data
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./Header";
 
 const Details = () => {
-  const { id } = useParams(); // Get the ID from URL
-  const hotel = hotels.find((h) => h.id === parseInt(id)); // Find hotel by ID
+  const { id } = useParams();
+  const hotel = hotels.find((h) => h.id == id);
+  console.log("show id", id);
 
   if (!hotel) {
     return <h2 className="text-center mt-5">Hotel not found!</h2>;
@@ -181,29 +15,165 @@ const Details = () => {
 
   return (
     <>
+      <Header />
       <div className="container mt-4">
-        <div className="d-flex">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/" className="text-dark">
+                Home
+              </Link>
+            </li>
+            <li className="breadcrumb-item">
+              <Link to="/" className="text-dark">
+                United kingdom hotels
+              </Link>
+            </li>
+            <li className="breadcrumb-item">
+              <Link to="/" className="text-dark">
+                London hotels
+              </Link>
+            </li>
+            <li className="breadcrumb-item active">{hotel.name}</li>
+          </ol>
+        </nav>
+
+        {/* Hotel Title & Location */}
+
+        {/* Image Gallery Section */}
+        <div className="row">
           {/* Main Image */}
-          <img
-            src={hotel.mainImage}
-            alt={hotel.name}
-            className="img-fluid rounded  mt-2"
-            style={{ width: "80%", maxHeight: "380px", objectFit: "cover" }}
-          />
-
-          {/* Gallery Images */}
-
-          <div>
-            {hotel.gallery.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                className="img-fluid rounded  p-2  shadow-lg"
-                style={{ width: "32%", height: "200px", borderRadius: "30px" }}
-              />
-            ))}
+          <div className="col-md-6">
+            <img
+              src={hotel.mainImage}
+              className="img-fluid rounded "
+              style={{ maxHeight: "400px", objectFit: "cover", width: "100%" }}
+            />
+          </div>
+          {/* Thumbnail Gallery */}
+          <div className="col-md-6">
+            <div className="d-flex flex-wrap gap-2">
+              {hotel.gallery.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  className="img-fluid rounded"
+                  style={{ width: "32%", height: "190px", objectFit: "cover" }}
+                  alt="Gallery"
+                />
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Highlights Section */}
+        <div className="d-flex flex-wrap">
+          <div className=" mt-2 p-3 " style={{ width: "65%" }}>
+            <div className=" row">
+              <div
+                className="border p-3"
+                style={{ width: "96%", marginLeft: "2%" }}
+              >
+                <h2 className="fw-medium">{hotel.name} ⭐⭐⭐</h2>
+                <p>{hotel.discription}</p>
+              </div>
+              <div
+                className="d-flex p-2 gap-4 mt-4 border flex-wrap"
+                style={{ width: "96%", marginLeft: "2%" }}
+              >
+                <h4 className=" col-md-3 fw-medium ">Highlights</h4>
+                <div>
+                  <img src="/Images/bus.svg" alt="" />
+                  <p>
+                    960 meters to public
+                    <br /> transportation
+                  </p>
+                </div>
+                <div>
+                  <img src="/Images/door.svg" alt="" />
+
+                  <p>Check-in [24-hour]</p>
+                </div>
+                <div>
+                  <img src="/Images/Hygen.svg" alt="" />
+
+                  <p>Hygiene Plus</p>
+                </div>
+              </div>
+            </div>
+            <div className="border mt-4 p-2">
+              <h4 className=" col-md-3 ms-4 fw-medium ">Facilities</h4>
+
+              <div
+                className="d-flex gap-5 p-2 mt-4  flex-wrap"
+                style={{ width: "96%", marginLeft: "2%" }}
+              >
+                <p>✔Free Wi-Fi</p>
+                <p className="text-primary">✔ Front Desk (24 Hours)</p>
+                <p className="text-primary">✔ Restaurant</p>
+                <p className="text-primary">✔ Bar</p>
+                <p className="text-primary">✔ Garden Area</p>
+                <p>✔ Luggage storage</p>
+                <p>✔ Balcony/Terrace</p>
+                <p>✔ Garden</p>
+                <p>✔ Laundary</p>
+              </div>
+            </div>
+            {/* Review Score & Nearby Places */}
+          </div>
+
+          {/* Facilities Section */}
+
+          {/* Right Side: Ratings & Map */}
+          <div className="col-md-4 mt-4 ms-3">
+            <div className="border p-3 rounded shadow-sm">
+              <h5 className="fw-bold">{hotel.rating} Very Good</h5>
+              <p className="text-muted">{hotel.reviews} reviews</p>
+              <div className="d-flex flex-wrap gap-2">
+                <span className="badge bg-success">
+                  Service {hotel.service}
+                </span>
+                <span className="badge bg-primary">
+                  Location {hotel.locationRating}
+                </span>
+                <span className="badge bg-warning">
+                  Cleanliness {hotel.cleanliness}
+                </span>
+                <span className="badge bg-info">
+                  Facilities {hotel.facilities}
+                </span>
+              </div>
+              {/* Map */}
+              <div className="mt-4  rounded ">
+                <img
+                  src="/Images/map.jpeg"
+                  alt="Map"
+                  className="img-fluid rounded"
+                />
+                <p className="text-center mt-2">
+                  <p className="text-start fw-medium">
+                    Location Rating: <span className="fw-normal">v good</span>
+                  </p>
+                </p>
+              </div>
+              <div className="mt-4 w-75 p-3  border-top  rounded ">
+                <h4 className="fw-bold">7.4 Very Good</h4>
+                <p className="text-muted">Based on 1,867 reviews</p>
+                <h5 className="fw-bold">Nearby Places</h5>
+                <ul className="list-unstyled">
+                  <li>🏛 Natural History Museum - 2.6 km</li>
+                  <li>📍 City Center - 790 meters</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Back Button */}
+        <Link to="/" className="btn btn-secondary mt-3">
+          🔙 Back to Gallery
+        </Link>
       </div>
     </>
   );

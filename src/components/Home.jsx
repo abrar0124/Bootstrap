@@ -25,48 +25,66 @@ const Home = () => {
     <>
       <Header />
       <div
-        className="vh-100 d-flex flex-column justify-content-center text-center text-white"
+        className=" vh-100 d-flex flex-column justify-content-center text-center "
         style={{
-          backgroundImage: "url('/Images/back.jpg')",
+          backgroundImage: "url('/Images/back.jpg')", // Replace with your uploaded image
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
         }}
       >
-        -{/* Content */}
         <div className="container">
-          <h1 className="fw-bold">London hotels & places to stay</h1>
-          <p className="lead">
+          <h1 className="fw-bold text-white">London hotels & places to stay</h1>
+          <p className="text-white">
             Search to compare prices and discover great deals with free
             cancellation
           </p>
 
           {/* Search Box */}
-          <div className="bg-white p-3 rounded shadow d-flex flex-wrap align-items-center justify-content-between">
-            <div className="input-group flex-grow-1 m-2">
-              <span className="input-group-text bg-white border-0">
-                {/* <i className="bi bi-search"></i> */}
-              </span>
+          <div className="bg-light  p-2 d-flex flex-wrap align-items-center justify-content-between gap-2">
+            {/* Location Input */}
+            <div className="input-group " style={{ flex: "1 1 250px" }}>
               <input
                 type="text"
-                className="form-control border-0"
-                placeholder="Mowbray Court Hotel"
+                className="form-control border p-2 fs-4"
+                placeholder="London"
+                style={{ fontSize: "14px" }}
               />
             </div>
 
-            <input type="date" className="form-control m-2 border-0" />
-            <input type="date" className="form-control m-2 border-0" />
+            <div
+              className="btn  btn-lg btn-white d-flex align-items-center "
+              style={{
+                flex: 1,
+              }}
+            >
+              <input type="date" className="form-control m-2 border-0" />
 
-            <select className="form-select m-2 border-0">
+              <input type="date" className="form-control m-2 border-0" />
+            </div>
+
+            <select
+              className=" p-3 btn  d-flex bg-white  m-2 border"
+              style={{
+                flex: "1 1 180px",
+                border: "1px solid #ddd",
+              }}
+            >
               <option>2 adults, 1 room</option>
               <option>1 adult, 1 room</option>
               <option>3 adults, 2 rooms</option>
             </select>
 
-            <button className="btn btn-primary m-2">Search</button>
+            {/* Search Button */}
+            <button
+              className="btn btn-primary"
+              style={{ borderRadius: "8px", padding: "10px 20px" }}
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
+
       <Gallery />
       <Unitedkingdom />
       <London />

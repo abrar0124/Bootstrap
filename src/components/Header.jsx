@@ -21,7 +21,7 @@ function Header() {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <Link
-                to={"/Home"}
+                to={"/"}
                 class="nav-link active"
                 aria-current="page"
                 href="#"
