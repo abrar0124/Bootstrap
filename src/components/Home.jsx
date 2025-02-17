@@ -24,8 +24,9 @@ const Home = () => {
   return (
     <>
       <Header />
+
       <div
-        className=" vh-100 d-flex flex-column justify-content-center text-center "
+        className="vh-100 d-flex flex-column justify-content-center text-center "
         style={{
           backgroundImage: "url('/Images/back.jpg')", // Replace with your uploaded image
           backgroundSize: "cover",

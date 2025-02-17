@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 
 const Gallery = () => {
   const { hotels, searchQuery } = useSelector((state) => state.hotels);
+
   const filteredHotels =
     searchQuery === ""
       ? hotels
       : hotels?.filter((hotel) => {
-          const hotelName = hotel.name.toLowerCase();
-          const query = searchQuery.toLowerCase();
-          return hotelName.startsWith(query[0]) && hotelName.includes(query);
+          const lowerCaseName = hotel.name.toLowerCase();
+          const lowerCaseQuery = searchQuery.toLowerCase();
+
+          return (
+            lowerCaseName.includes(lowerCaseQuery) ||
+            lowerCaseName.startsWith(lowerCaseQuery)
+          );
         });
 
   return (

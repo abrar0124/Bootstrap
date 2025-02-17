@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSearchQuery } from "./Redux/Hotelslice";
+import { setSearchQuery } from "../Redux/Hotelslice";
 
 function Header() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light p-3">
+    <nav className="navbar navbar-expand-lg bg-light p-3 w-100 position-fixed">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Navbar
