@@ -6,7 +6,6 @@ import London from "./Londoncompo";
 import Accomos from "./Accomos";
 import Cheapplace from "./Cheapplace";
 import Fourstar from "./Fourstar";
-import Header from "./Header";
 import Luxuryhotel from "./Luxuryhotel";
 import Upcomingevent from "./Upcomingevents";
 import Popularhotel from "./Popularhotel";
@@ -19,12 +18,18 @@ import Textbootstrap from "./Textbootstrap";
 import Bootstrapfooter from "./Bootstrapfooter1";
 import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
+import { setSearchQuery } from "../Redux/Hotelslice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const searchQuery = useSelector((state) => state.hotels.searchQuery);
+
+  const handleSearch = (e) => {
+    dispatch(setSearchQuery(e.target.value));
+  };
   return (
     <>
-      <Header />
-
       <div
         className="vh-100 d-flex flex-column justify-content-center text-center "
         style={{
@@ -45,10 +50,11 @@ const Home = () => {
             {/* Location Input */}
             <div className="input-group " style={{ flex: "1 1 250px" }}>
               <input
-                type="text"
-                className="form-control border p-2 fs-4"
-                placeholder="London"
-                style={{ fontSize: "14px" }}
+                className="form-control me-2"
+                type="search"
+                placeholder="Search hotels..."
+                value={searchQuery}
+                onChange={handleSearch}
               />
             </div>
 
@@ -87,7 +93,7 @@ const Home = () => {
       </div>
 
       <Gallery />
-      <Unitedkingdom />
+      <Unitedkingdom saba="Fast facts about London, United Kingdom" saba2="" />
       <London />
       <Accomos />
       <Cheapplace />

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Text from "./Text";
 
 const Gallery = () => {
   const { hotels, searchQuery } = useSelector((state) => state.hotels);
@@ -18,21 +19,19 @@ const Gallery = () => {
         });
   return (
     <div className="container mt-4">
-      <h2 className="fw-medium" style={{ marginLeft: "8%" }}>
-        Hotels in London
-      </h2>
+      <Text type="h2" content={"Hotels in London"} />
       <div className="row">
         {/* Sidebar for Filters */}
         <div className="col-md-3">
           <div className="card p-3" style={{ width: "70%", marginLeft: "34%" }}>
-            <h5>Star rating</h5>
+            <Text type={"h5"} content={"Rating"} />
             {[5, 4, 3, 2, 1].map((star, index) => (
               <div className="form-check lh-lg" key={index}>
                 <input className="form-check-input" type="checkbox" />
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
-            <h5 className="mt-3">Review score</h5>
+            <Text type="h5" content="Review score" />
             {["Exceptional 9+", "Very good 8+", "Good 7+", "Pleasant 6+"].map(
               (score, index) => (
                 <div className="lh-lg form-check" key={index}>
@@ -80,7 +79,7 @@ const Gallery = () => {
                       <h5 className="card-title fw-bold text-muted">
                         {hotel.name}
                       </h5>
-                      <p className="text-warning mb-1">★★★★☆</p>
+                      <Text type="p" content="⭐⭐⭐⭐⭐" />
                       <p className="text-muted">{hotel.discription}</p>
                       <p>
                         <span className="text-primary">{hotel.location}</span>
@@ -88,7 +87,7 @@ const Gallery = () => {
                     </div>
                   </div>
                   <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">
-                    <span className="text-muted">Very good</span>
+                    <Text type={"p"} content={"very good"} />
                     <span className="fs-5 text-primary fw-bold">
                       {hotel.rating}
                     </span>
@@ -104,7 +103,7 @@ const Gallery = () => {
               </div>
             ))
           ) : (
-            <p>No hotels found.</p>
+            <Text type={"p"} content={"No hotels found."} />
           )}
         </div>
       </div>

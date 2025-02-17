@@ -1,17 +1,18 @@
-function Unitedkingdom() {
+function Unitedkingdom({ saba, saba2 }) {
+  // if (type == "body")
   return (
     <>
       <div
         className=" text-muted  mt-5"
         style={{ marginLeft: "14%", width: "66%" }}
       >
-        <p class="text-dark">Fast facts about London, United Kingdom</p>
+        <p>{saba}</p>
         <div className="d-flex gap-5 p-2 bg-light ">
           <div>
             <p>Accommodations</p>
           </div>
           <div>
-            <p> 24,105 properties</p>
+            <p>{saba2}</p>
           </div>
         </div>
         <div className="d-flex gap-5 p-1 ">

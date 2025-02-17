@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Details from "./components/Detials";
-import Home from "./components/Home";
+import Mainhomepage from "./Pages/Mainhomepage";
+import Maindetailpage from "./Pages/Maindetailpage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/" element={<Mainhomepage />} />
+          <Route path="/details/:id" element={<Maindetailpage />} />
         </Routes>
       </BrowserRouter>
     </>

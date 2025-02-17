@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light p-3 w-100 position-fixed">
+    <nav className="header navbar navbar-expand-lg bg-light p-3  position-fixed w-100">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Navbar
