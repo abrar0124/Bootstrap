@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 const Gallery = () => {
   const { hotels, searchQuery } = useSelector((state) => state.hotels);
-
   const filteredHotels =
-    searchQuery.trim() === ""
+    searchQuery === ""
       ? hotels
       : hotels?.filter((hotel) => {
           const hotelName = hotel.name.toLowerCase();
