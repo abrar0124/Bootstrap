@@ -73,9 +73,11 @@ const Gallery = () => {
                   </div>
                   <div className="col-md-5">
                     <div className="card-body">
-                      <h5 className="card-title fw-bold">{hotel.name}</h5>
+                      <h5 className="card-title fw-bold text-muted">
+                        {hotel.name}
+                      </h5>
                       <p className="text-warning mb-1">★★★★☆</p>
-                      <p>{hotel.discription}</p>
+                      <p className="text-muted">{hotel.discription}</p>
                       <p>
                         <span className="text-primary">{hotel.location}</span>
                       </p>
