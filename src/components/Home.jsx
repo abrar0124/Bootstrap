@@ -93,7 +93,7 @@ const Home = () => {
       </div>
 
       <Gallery />
-      <Unitedkingdom saba="Fast facts about London, United Kingdom" saba2="" />
+      <Unitedkingdom />
       <London />
       <Accomos />
       <Cheapplace />

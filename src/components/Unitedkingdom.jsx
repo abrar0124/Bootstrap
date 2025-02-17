@@ -1,18 +1,20 @@
-function Unitedkingdom({ saba, saba2 }) {
-  // if (type == "body")
+import Text from "./Text";
+function Unitedkingdom() {
   return (
     <>
       <div
         className=" text-muted  mt-5"
         style={{ marginLeft: "14%", width: "66%" }}
       >
-        <p>{saba}</p>
+        {/* <p>Fast facts about Kuala Lumpur, Malaysia</p> */}
+        <Text type="p" content="Fast facts about Kuala Lumpur, Malaysia" />
         <div className="d-flex gap-5 p-2 bg-light ">
           <div>
-            <p>Accommodations</p>
+            {/* <p>Accommodations</p> */}
+            <Text type="p" content="Accommodations" />
           </div>
           <div>
-            <p>{saba2}</p>
+            <Text type="p" content="Products" />
           </div>
         </div>
         <div className="d-flex gap-5 p-1 ">
