@@ -16,7 +16,6 @@ const Gallery = () => {
             lowerCaseName.startsWith(lowerCaseQuery)
           );
         });
-
   return (
     <div className="container mt-4">
       <h2 className="fw-medium" style={{ marginLeft: "8%" }}>
