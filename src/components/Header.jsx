@@ -6,10 +6,6 @@ function Header() {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.hotels.searchQuery);
 
-  const handleSearch = (e) => {
-    dispatch(setSearchQuery(e.target.value));
-  };
-
   return (
     <nav className="header navbar navbar-expand-lg bg-light p-3  position-fixed w-100">
       <div className="container-fluid">
@@ -46,7 +42,7 @@ function Header() {
               type="search"
               placeholder="Search hotels..."
               value={searchQuery}
-              onChange={handleSearch}
+              onChange={(e) => dispatch(setSearchQuery(e.target.value))}
             />
             <button className="btn btn-outline-success" type="button">
               Search
