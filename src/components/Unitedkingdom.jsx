@@ -10,7 +10,6 @@ function Unitedkingdom() {
         <Text type="p" content="Fast facts about Kuala Lumpur, Malaysia" />
         <div className="d-flex gap-5 p-2 bg-light ">
           <div>
-            {/* <p>Accommodations</p> */}
             <Text type="p" content="Accommodations" />
           </div>
           <div>
@@ -19,42 +18,42 @@ function Unitedkingdom() {
         </div>
         <div className="d-flex gap-5 p-1 ">
           <div>
-            <p>Popular hotel</p>
+            <Text type={"p"} content={"Popular hotel"} />
           </div>
           <div>
-            <p>Zedwell Piccadilly</p>
+            <Text type={"p"} content={"Zedwell Piccadilly"} />
           </div>
         </div>
         <div className="d-flex gap-5 p-2 bg-light">
           <div>
-            <p>Popular area</p>
+            <Text type={"p"} content={"Popular area"} />
           </div>
           <div>
-            <p>Chelsea</p>
+            <Text type={"p"} content={"Chelsea"} />
           </div>
         </div>
         <div className="d-flex gap-5 p-1">
           <div>
-            <p>Nightly rates from</p>
+            <Text type={"p"} content="Nightly rates from" />
           </div>
           <div>
-            <p> £9</p>
-          </div>
-        </div>
-        <div className="d-flex gap-5 p-2 bg-light">
-          <div>
-            <p>Airport</p>
-          </div>
-          <div>
-            <p>Heathrow Airport</p>
+            <Text type={"p"} content={"£9"} />
           </div>
         </div>
         <div className="d-flex gap-5 p-2 bg-light">
           <div>
-            <p>Reasons to visit</p>
+            <Text type={"p"} content={"Airport"} />
           </div>
           <div>
-            <p>Sightseeing, Shopping, Museum & arts</p>
+            <Text type={"p"} content={"Heathrow Airport"} />
+          </div>
+        </div>
+        <div className="d-flex gap-5 p-2 bg-light">
+          <div>
+            <Text type={"p"} content={"Reasons to visit"} />
+          </div>
+          <div>
+            <Text type={"p"} content={"Sightseeing, Shopping, Museum & arts"} />
           </div>
         </div>
       </div>

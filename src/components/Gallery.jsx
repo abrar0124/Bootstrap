@@ -1,22 +1,26 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Text from "./Text";
+import { toggleStarFilter } from "../Redux/Hotelslice";
 
 const Gallery = () => {
-  const { hotels, searchQuery } = useSelector((state) => state.hotels);
+  const dispatch = useDispatch();
+  const { hotels, searchQuery, selectedStars } = useSelector(
+    (state) => state.hotels
+  );
 
-  const filteredHotels =
-    searchQuery === ""
-      ? hotels
-      : hotels?.filter((hotel) => {
-          const lowerCaseName = hotel.name.toLowerCase();
-          const lowerCaseQuery = searchQuery.toLowerCase();
+  // Filtering Logic
+  const filteredHotels = hotels.filter((hotel) => {
+    const lowerCaseName = hotel.name.toLowerCase();
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    const matchesSearch =
+      lowerCaseName.includes(lowerCaseQuery) ||
+      lowerCaseName.startsWith(lowerCaseQuery);
+    const matchesStars =
+      selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
+    return matchesSearch && matchesStars;
+  });
 
-          return (
-            lowerCaseName.includes(lowerCaseQuery) ||
-            lowerCaseName.startsWith(lowerCaseQuery)
-          );
-        });
   return (
     <div className="container mt-4">
       <Text type="h2" content={"Hotels in London"} />
@@ -25,23 +29,20 @@ const Gallery = () => {
         <div className="col-md-3">
           <div className="card p-3" style={{ width: "70%", marginLeft: "34%" }}>
             <Text type={"h5"} content={"Rating"} />
-            {[5, 4, 3, 2, 1].map((star, index) => (
-              <div className="form-check lh-lg" key={index}>
-                <input className="form-check-input" type="checkbox" />
+            {[5, 4, 3, 2, 1].map((star) => (
+              <div className="form-check lh-lg" key={star}>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  checked={selectedStars.includes(star)}
+                  onChange={() => dispatch(toggleStarFilter(star))}
+                />
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
-            <Text type="h5" content="Review score" />
-            {["Exceptional 9+", "Very good 8+", "Good 7+", "Pleasant 6+"].map(
-              (score, index) => (
-                <div className="lh-lg form-check" key={index}>
-                  <input className="form-check-input" type="checkbox" />
-                  <label className="form-check-label">{score}</label>
-                </div>
-              )
-            )}
           </div>
         </div>
+
         {/* Hotel List */}
         <div className="col-md-9">
           <div className="btn-group mb-3 w-100">
@@ -79,7 +80,7 @@ const Gallery = () => {
                       <h5 className="card-title fw-bold text-muted">
                         {hotel.name}
                       </h5>
-                      <Text type="p" content="⭐⭐⭐⭐⭐" />
+                      <p>{hotel.Star}</p>
                       <p className="text-muted">{hotel.discription}</p>
                       <p>
                         <span className="text-primary">{hotel.location}</span>
