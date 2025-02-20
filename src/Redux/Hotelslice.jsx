@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import hotels from "../components/Hotels";
-
 const hotelSlice = createSlice({
   name: "hotels",
   initialState: {
@@ -22,6 +21,5 @@ const hotelSlice = createSlice({
     },
   },
 });
-
 export const { setSearchQuery, toggleStarFilter } = hotelSlice.actions;
 export default hotelSlice.reducer;
