@@ -1,4 +1,5 @@
 import React from "react";
+import Text from "./Text";
 
 const hotelsData = [
   { name: "Chelsea", count: 2689 },
@@ -30,10 +31,10 @@ const hotelsData = [
 const Newkingdom = () => {
   return (
     <>
-      <h1 className="mt-4" style={{ marginLeft: "10%" }}>
-        {" "}
-        Other popular destinations in United Kingdom
-      </h1>
+      <Text
+        type={"h1"}
+        content={"Other popular destinations in United Kingdom"}
+      />
       <div className="container mt-4">
         <div className="row g-3">
           {hotelsData.map((hotel, index) => (

@@ -1,5 +1,6 @@
 import React from "react";
 import "./customscss.scss";
+import Text from "./Text";
 
 const Bootstrapfooter = () => {
   return (
@@ -7,133 +8,88 @@ const Bootstrapfooter = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-2">
-            <div className="fw-bold">Help</div>
+            <Text type={"h6"} content={"Help"} />
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Help center
-              </a>
+              <Text type={"link"} content={"Help center"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                FAQs
-              </a>
+              <Text type={"link"} content={"FAQs"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Privacy policy
-              </a>
+              <Text type={"link"} content={"Privacy policy"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Cookie policy
-              </a>
+              <Text type={"link"} content={"Cookies policy"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Terms of use
-              </a>
+              <Text type={"link"} content={"Term of use"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Manage cookie settings
-              </a>
+              <Text type={"link"} content={"Manage cookies setting"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Digital Services Act (EU)
-              </a>
+              <Text type={"link"} content={"Digital Services Act (EU)"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover  navbar-brand text-muted">
-                Content guidelines & reporting
-              </a>
+              <Text type={"link"} content={"Content guidelines & reporting"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Modern Slavery Statement
-              </a>
+              <Text type={"link"} content={"Modern Slavery Statement"} />
             </div>
           </div>
           <div className="col-md-2">
-            <div className="fw-bold">Company</div>
+            <Text type={"h6"} content={"Company"} />
+
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                About us
-              </a>
+              <Text type={"link"} content={"About us"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover  navbar-brand text-muted">
-                Careers
-              </a>
+              <Text type={"link"} content={"Careers"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Press
-              </a>
+              <Text type={"link"} content={"Press"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Blog
-              </a>
+              <Text type={"link"} content={"Blogs"} />
             </div>
             <div>
-              <a href="#" className="  custom-hover navbar-brand text-muted">
-                PointsMAX
-              </a>
+              <Text type={"link"} content={"Points max"} />
             </div>
           </div>
           <div className="col-md-2">
-            <div className="fw-bold">Destinations</div>
+            <Text type={"h6"} content={"Destination"} />
             <div>
-              <a href="#" className="  custom-hover navbar-brand text-muted">
-                Countries/Territories
-              </a>
+              <Text type={"link"} content={"Countries/Territories"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                All Flight Routes
-              </a>
+              <Text type={"link"} content={"All flight Routes"} />
             </div>
           </div>
           <div className="col-md-3">
-            <div className="fw-bold">Partner with us</div>
+            <Text type={"h6"} content={"Partner with us"} />
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                YCS partner portal
-              </a>
+              <Text type={"link"} content={"YCS partner portal"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Partner Hub
-              </a>
+              <Text type={"link"} content={" partner Hub"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Advertise on Agoda
-              </a>
+              <Text type={"link"} content={"Advertise on Agoda"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Affiliates
-              </a>
+              <Text type={"link"} content={"Affiliates"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Agoda API Documentation
-              </a>
+              <Text type={"link"} content={"Agoda API Documentation"} />
             </div>
           </div>
           <div className="col-md-3">
             <div className="fw-bold">Get the app</div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                iOS app
-              </a>
+              <Text type={"link"} content={" iOS app"} />
             </div>
             <div>
-              <a href="#" className=" custom-hover navbar-brand text-muted">
-                Android app
-              </a>
+              <Text type={"link"} content={"Andriod app"} />
             </div>
           </div>
         </div>

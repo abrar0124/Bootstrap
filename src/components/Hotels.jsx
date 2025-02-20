@@ -185,9 +185,8 @@ const hotels = [
   },
   {
     id: 10,
-    name: "PubLove @ The White Ferry Victoria",
+    name: "PubLove @ The Brown Ferry Victoria",
     Star: "⭐",
-
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,

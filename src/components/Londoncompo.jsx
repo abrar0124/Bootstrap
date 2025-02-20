@@ -31,10 +31,6 @@ const hotelsData = [
 const London = () => {
   return (
     <>
-      {/* <h1 className="mt-4" style={{ marginLeft: "10%" }}>
-        {" "}
-        Where to stay in London
-      </h1> */}
       <Text type="h2" content="Where to stay in London" />
       <div className="container mt-4">
         <div className="row g-3">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./customscss.scss";
+import Text from "./Text";
 
 const hotelsData = [
   {
@@ -31,9 +32,12 @@ const Travels = () => {
     <>
       <div className="border-top">
         <div className="container ">
-          <p className="  fs-3 text-center  fw-medium mt-4">
-            Explore more travel vacation rentals
-          </p>
+          <Text
+            type="h2"
+            content="Explore more travel vacation rentals
+"
+          />
+
           <div className="custom-text">
             <div className="container mt-5 text-center ">
               <div className="d-flex justify-content-center align-items-center">

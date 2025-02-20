@@ -1,10 +1,12 @@
 import React from "react";
 import "./customscss.scss";
+import Text from "./Text";
+import { useSelector } from "react-redux";
 
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-
+    Star: "⭐⭐⭐",
     rating: 4,
     review: "6.9 Good",
     reviewsCount: 434,
@@ -13,7 +15,7 @@ const hotelsData = [
   },
   {
     name: "B’Shan Apartments",
-
+    Star: "⭐⭐",
     rating: 4,
     review: "5.9 Review Score",
     reviewsCount: 3,
@@ -22,6 +24,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
+    Star: "⭐",
     rating: 4,
     review: "6.7 Good",
     reviewsCount: 2064,
@@ -32,15 +35,27 @@ const hotelsData = [
 ];
 
 const Reviews = () => {
+  const { searchQuery, selectedStars } = useSelector((state) => state.hotels);
+  const filteredHotels = hotelsData.filter((hotel) => {
+    const lowerCaseName = hotel.name.toLowerCase();
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    const matchesSearch =
+      lowerCaseName.includes(lowerCaseQuery) ||
+      lowerCaseName.startsWith(lowerCaseQuery);
+    const matchesStars =
+      selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
+    return matchesSearch && matchesStars;
+  });
   return (
     <>
       <div className="container border-top">
-        <p className="  fs-3 fw-medium mt-4">Real reviews for hotels</p>
+        <Text type="h2" content="Real Reviews  for hotels" />
+
         <div className="custom-text">
           <div className="container mt-5 text-center ">
             <div className="d-flex justify-content-center align-items-center">
               <div className="row w-75">
-                {hotelsData.map((hotel, index) => (
+                {filteredHotels.map((hotel, index) => (
                   <div className="col-md-4 " key={index}>
                     <div className="card h-100 border  hover-shadow">
                       <div className=" hover-shadow  card-body">
@@ -51,9 +66,7 @@ const Reviews = () => {
                             Based on {hotel.reviewsCount} reviews
                           </small>
                         </p>
-                        <div className="text-warning border-bottom">
-                          "⭐⭐⭐⭐⭐"
-                        </div>
+                        <p>{hotel.Star}</p>
                         <p className="mt-2">{hotel.description}</p>
                         <p className="text-muted">
                           <small>{hotel.reviewer}</small>

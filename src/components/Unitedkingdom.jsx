@@ -6,7 +6,6 @@ function Unitedkingdom() {
         className=" text-muted  mt-5"
         style={{ marginLeft: "14%", width: "66%" }}
       >
-        {/* <p>Fast facts about Kuala Lumpur, Malaysia</p> */}
         <Text type="p" content="Fast facts about Kuala Lumpur, Malaysia" />
         <div className="d-flex gap-5 p-2 bg-light ">
           <div>

@@ -8,7 +8,6 @@ const Gallery = () => {
   const { hotels, searchQuery, selectedStars } = useSelector(
     (state) => state.hotels
   );
-
   // Filtering Logic
   const filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();

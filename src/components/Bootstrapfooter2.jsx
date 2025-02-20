@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./customscss.scss";
+import Text from "./Text";
 
 const hotels = [
   [
@@ -56,7 +57,7 @@ const hotels = [
 const Bootstrapfooter2 = () => {
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Popular London Hotels</h2>
+      <Text type={"h2"} content={"Popular London Hotels"} />
       <div className="row">
         {hotels.map((column, index) => (
           <div className="col-md-3" key={index}>

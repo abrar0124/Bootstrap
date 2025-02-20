@@ -1,9 +1,11 @@
+import Text from "./Text";
+
 function Accordioncompo() {
   return (
     <>
       <div className=" d-flex justify-content-center gap-5 ">
         <div className=" accordion w-75" style={{ marginLeft: "10%" }}>
-          <p className="fs-3">Frequently asked questions</p>
+          <Text type="p" content="Frequently asked Questions" />
           <div className="accordion-item">
             <button
               className="accordion-button collapsed"
