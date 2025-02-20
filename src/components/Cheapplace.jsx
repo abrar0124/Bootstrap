@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import Text from "./Text";
+import React from "react";
 
 const hotelsData = [
   {
