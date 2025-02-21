@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Four-star1 Hotel Oval",
-    price: 11000,
+    price: 80000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar1.webp",
     rating: 4,
@@ -17,7 +17,7 @@ const hotelsData = [
   },
   {
     name: "Four-star2 Apartments",
-    price: 12000,
+    price: 90000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar3.webp",
     rating: 4,
@@ -28,7 +28,7 @@ const hotelsData = [
   },
   {
     name: "Civic Hyde Park",
-    price: 13000,
+    price: 150000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar2.jpg",
     rating: 4,

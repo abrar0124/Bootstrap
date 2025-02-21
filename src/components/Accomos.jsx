@@ -4,7 +4,7 @@ import Text from "./Text";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-    price: 5000,
+    price: 50000,
     Star: "⭐⭐⭐",
     image: "/Images/accom.webp",
     rating: 4,
@@ -15,7 +15,7 @@ const hotelsData = [
   },
   {
     name: "B’Shan Apartments",
-    price: 6000,
+    price: 60000,
     Star: "⭐",
     image: "/Images/accomo1.webp",
     rating: 4,
@@ -26,7 +26,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
-    price: 7000,
+    price: 70000,
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/accomo2.webp",
     rating: 4,

@@ -4,7 +4,7 @@ import React from "react";
 const hotelsData = [
   {
     name: "Special Hotel Oval",
-    price: 8000,
+    price: 80000,
     Star: "⭐⭐⭐",
     image: "/Images/cheap1.webp",
     rating: 4,
@@ -16,7 +16,7 @@ const hotelsData = [
   {
     name: "Shan Apartments",
     Star: "⭐⭐",
-    price: 9000,
+    price: 90000,
     image: "/Images/cheap2.webp",
     rating: 4,
     review: "5.9 Review Score",
@@ -26,7 +26,7 @@ const hotelsData = [
   },
   {
     name: "Cheap Avenue Hyde Park",
-    price: 10000,
+    price: 50000,
     Star: "⭐",
     image: "/Images/cheap3.webp",
     rating: 4,

@@ -20,8 +20,7 @@ const Gallery = () => {
 
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-
-    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    const matchesPrice = selectedPrice == null || hotel.price === selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
   return (
@@ -46,23 +45,17 @@ const Gallery = () => {
 
             {/* Price Filter */}
             <div className="mt-3">
-              <Text type={"h5"} content={"Price (PKR)"} />
-              {/* <input
-                type="number"
-                className="form-control"
-                placeholder="Enter price..."
-                value={selectedPrice ?? ""}
-                onChange={(e) => dispatch(setPriceFilter(e.target.value))} // 👈 Redux action call karega
-              /> */}
+              <Text type={"h5"} content={"Price PKR"} />
               <input
                 type="number"
                 className="form-control"
                 placeholder="Enter price..."
-                value={selectedPrice ?? ""}
-                onChange={(e) =>
-                  dispatch(setPriceFilter(Number(e.target.value) || ""))
-                }
-                onWheel={(e) => e.target.blur()} // 👈 Yeh scroll ko disable karega
+                value={selectedPrice}
+                onChange={(e) => {
+                  const price = e.target.value ? Number(e.target.value) : null;
+                  dispatch(setPriceFilter(price));
+                }}
+                onWheel={(e) => e.target.blur()} // Scroll disable
               />
             </div>
           </div>

@@ -26,7 +26,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 40000, // ✅ Numeric Price
+    price: 60000, // ✅ Numeric Price
     discription:
       "Can't beat this for the price in a London hotel. Booking through Agoda considerably cheaper than other sites",
     mainImage: "/Images/Courthotel.webp",
@@ -46,7 +46,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 30000, // ✅ Numeric Price
+    price: 70000, // ✅ Numeric Price
     discription:
       "The customer service was really amazing! Specially a lady Aurélie made the difference, she was always smiling and interacting with every guest and she was",
     mainImage: "/Images/bed1.webp",
@@ -66,7 +66,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 10000, // ✅ Numeric Price
+    price: 80000, // ✅ Numeric Price
     discription: "Great value for money",
     mainImage: "/Images/bedroom.jpg",
     gallery: [
@@ -85,7 +85,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 20000, // ✅ Numeric Price
+    price: 90000, // ✅ Numeric Price
     discription:
       "This time, I wanted to find out nice hostel in London. I did use first time this hostel. As I did operation after, I was really worried about . But this hostel was great",
     mainImage: "/Images/holidays.webp",
@@ -105,7 +105,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 30000, // ✅ Numeric Price
+    price: 50000, // ✅ Numeric Price
     discription: "The hotel room is big, great location and lovely staff",
     mainImage: "/Images/whiteferry.webp",
     gallery: [
@@ -124,7 +124,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 50000, // ✅ Numeric Price
+    price: 60000, // ✅ Numeric Price
     discription:
       "Location was superb, staff was friendly and helpful, food in the pub was very good. Rooms are clean, with door locks and lockers for your gear while out for the",
     mainImage: "/Images/Queens.webp",
@@ -144,7 +144,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 40000, // ✅ Numeric Price
+    price: 70000, // ✅ Numeric Price
     mainImage: "/Images/hotel41.webp",
     gallery: [
       "/Images/hotel46.jpg",
@@ -162,7 +162,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 20000, // ✅ Numeric Price
+    price: 80000, // ✅ Numeric Price
     discription:
       "This is not a paid but honest sincere review on my stay here. This was my 2nd stay since Feb 2016. My recent stay from 19-28 dec was a blessed one! Im",
     mainImage: "/Images/ibis.webp",
@@ -182,7 +182,7 @@ const hotels = [
     location: "St Katharine's Way, London",
     rating: 8.2,
     reviews: 3405,
-    price: 10000, // ✅ Numeric Price
+    price: 90000, // ✅ Numeric Price
     discription:
       "The staff at the front desk is very friendly and helpful during the check-in. A thumbs up for her. The room is beyond my expectation. I thought the room is poor",
     mainImage: "/Images/dover1.jpg",
