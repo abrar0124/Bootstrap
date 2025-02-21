@@ -13,11 +13,9 @@ const Gallery = () => {
   const filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
-
     const matchesSearch =
       lowerCaseName.includes(lowerCaseQuery) ||
       lowerCaseName.startsWith(lowerCaseQuery);
-
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = selectedPrice == null || hotel.price === selectedPrice;
@@ -42,7 +40,6 @@ const Gallery = () => {
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
-
             {/* Price Filter */}
             <div className="mt-3">
               <Text type={"h5"} content={"Price PKR"} />
