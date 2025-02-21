@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Upcoming Hotel Oval",
+    price: 17000,
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/event1.jpg",
     rating: 4,
@@ -15,6 +16,7 @@ const hotelsData = [
     reviewer: "Zaiton, Singapore",
   },
   {
+    price: 18000,
     name: "Oval Spcial Apartments",
     Star: "⭐⭐",
     image: "/Images/event2.jpg",
@@ -26,6 +28,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
+    price: 19000,
     Star: "⭐",
     image: "/Images/event3.jpg",
     rating: 4,
@@ -37,7 +40,9 @@ const hotelsData = [
   },
 ];
 const Upcomingevent = () => {
-  const { searchQuery, selectedStars } = useSelector((state) => state.hotels);
+  const { searchQuery, selectedStars, selectedPrice } = useSelector(
+    (state) => state.hotels
+  );
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -46,7 +51,9 @@ const Upcomingevent = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    return matchesSearch && matchesStars;
+    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+
+    return matchesSearch && matchesStars && matchesPrice;
   });
   return (
     <>
@@ -79,6 +86,7 @@ const Upcomingevent = () => {
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
                     </p>
+                    <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>
                 </div>
               </div>

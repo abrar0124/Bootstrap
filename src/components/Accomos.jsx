@@ -4,6 +4,7 @@ import Text from "./Text";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
+    price: 5000,
     Star: "⭐⭐⭐",
     image: "/Images/accom.webp",
     rating: 4,
@@ -14,6 +15,7 @@ const hotelsData = [
   },
   {
     name: "B’Shan Apartments",
+    price: 6000,
     Star: "⭐",
     image: "/Images/accomo1.webp",
     rating: 4,
@@ -24,6 +26,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
+    price: 7000,
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/accomo2.webp",
     rating: 4,
@@ -35,7 +38,9 @@ const hotelsData = [
   },
 ];
 const Accomos = () => {
-  const { searchQuery, selectedStars } = useSelector((state) => state.hotels);
+  const { searchQuery, selectedStars, selectedPrice } = useSelector(
+    (state) => state.hotels
+  );
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -44,7 +49,8 @@ const Accomos = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    return matchesSearch && matchesStars;
+    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    return matchesSearch && matchesStars && matchesPrice;
   });
 
   return (
@@ -75,6 +81,7 @@ const Accomos = () => {
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
                     </p>
+                    <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>
                 </div>
               </div>

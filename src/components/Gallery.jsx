@@ -1,25 +1,29 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Text from "./Text";
-import { toggleStarFilter } from "../Redux/Hotelslice";
+import { toggleStarFilter, setPriceFilter } from "../Redux/Hotelslice";
 
 const Gallery = () => {
   const dispatch = useDispatch();
-  const { hotels, searchQuery, selectedStars } = useSelector(
+  const { hotels, searchQuery, selectedStars, selectedPrice } = useSelector(
     (state) => state.hotels
   );
+
   // Filtering Logic
   const filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
+
     const matchesSearch =
       lowerCaseName.includes(lowerCaseQuery) ||
       lowerCaseName.startsWith(lowerCaseQuery);
+
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    return matchesSearch && matchesStars;
-  });
 
+    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    return matchesSearch && matchesStars && matchesPrice;
+  });
   return (
     <div className="container mt-4">
       <Text type="h2" content={"Hotels in London"} />
@@ -39,6 +43,28 @@ const Gallery = () => {
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
+
+            {/* Price Filter */}
+            <div className="mt-3">
+              <Text type={"h5"} content={"Price (PKR)"} />
+              {/* <input
+                type="number"
+                className="form-control"
+                placeholder="Enter price..."
+                value={selectedPrice ?? ""}
+                onChange={(e) => dispatch(setPriceFilter(e.target.value))} // 👈 Redux action call karega
+              /> */}
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Enter price..."
+                value={selectedPrice ?? ""}
+                onChange={(e) =>
+                  dispatch(setPriceFilter(Number(e.target.value) || ""))
+                }
+                onWheel={(e) => e.target.blur()} // 👈 Yeh scroll ko disable karega
+              />
+            </div>
           </div>
         </div>
 
