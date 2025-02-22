@@ -7,7 +7,7 @@ const hotels = [
     location: "Canary Wharf,",
     rating: 6.9,
     reviews: 2109,
-    price: 2000, // ✅ Numeric Price
+    price: 1005, // ✅ Numeric Price
     discription:
       "Great place to stay - we booked it on a chance as we needed cheap accommodation on a Monday night near to Brixton Academy - it's a short walk from a tube",
     mainImage: "/Images/hotel1.webp",
