@@ -4,7 +4,7 @@ import Text from "./Text";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-    price: 50000,
+    price: 12000,
     Star: "⭐⭐⭐",
     image: "/Images/accom.webp",
     rating: 4,
@@ -15,7 +15,7 @@ const hotelsData = [
   },
   {
     name: "B’Shan Apartments",
-    price: 60000,
+    price: 13000,
     Star: "⭐",
     image: "/Images/accomo1.webp",
     rating: 4,
@@ -26,7 +26,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
-    price: 70000,
+    price: 14000,
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/accomo2.webp",
     rating: 4,
@@ -49,7 +49,7 @@ const Accomos = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
 

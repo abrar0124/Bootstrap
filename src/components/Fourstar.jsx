@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Four-star1 Hotel Oval",
-    price: 80000,
+    price: 18000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar1.webp",
     rating: 4,
@@ -17,7 +17,7 @@ const hotelsData = [
   },
   {
     name: "Four-star2 Apartments",
-    price: 90000,
+    price: 19000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar3.webp",
     rating: 4,
@@ -28,7 +28,7 @@ const hotelsData = [
   },
   {
     name: "Civic Hyde Park",
-    price: 150000,
+    price: 20000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar2.jpg",
     rating: 4,
@@ -52,7 +52,7 @@ const Fourstar = () => {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
 
-    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
 

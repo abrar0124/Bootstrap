@@ -4,7 +4,7 @@ import React from "react";
 const hotelsData = [
   {
     name: "Special Hotel Oval",
-    price: 80000,
+    price: 15000,
     Star: "⭐⭐⭐",
     image: "/Images/cheap1.webp",
     rating: 4,
@@ -16,7 +16,7 @@ const hotelsData = [
   {
     name: "Shan Apartments",
     Star: "⭐⭐",
-    price: 90000,
+    price: 16000,
     image: "/Images/cheap2.webp",
     rating: 4,
     review: "5.9 Review Score",
@@ -26,7 +26,7 @@ const hotelsData = [
   },
   {
     name: "Cheap Avenue Hyde Park",
-    price: 50000,
+    price: 17000,
     Star: "⭐",
     image: "/Images/cheap3.webp",
     rating: 4,
@@ -49,7 +49,7 @@ function Cheapplace() {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
   return (

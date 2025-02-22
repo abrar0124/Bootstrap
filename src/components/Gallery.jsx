@@ -2,13 +2,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Text from "./Text";
 import { toggleStarFilter, setPriceFilter } from "../Redux/Hotelslice";
+import "./customscss.scss";
 
 const Gallery = () => {
   const dispatch = useDispatch();
   const { hotels, searchQuery, selectedStars, selectedPrice } = useSelector(
     (state) => state.hotels
   );
-
   // Filtering Logic
   const filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
@@ -18,7 +18,7 @@ const Gallery = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = selectedPrice == null || hotel.price === selectedPrice;
+    const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
   return (
@@ -57,7 +57,6 @@ const Gallery = () => {
             </div>
           </div>
         </div>
-
         {/* Hotel List */}
         <div className="col-md-9">
           <div className="btn-group mb-3 w-100">
@@ -79,27 +78,73 @@ const Gallery = () => {
               <div key={hotel.id} className="card mb-4 p-3 shadow-sm">
                 <div className="row g-0">
                   <div className="col-md-4">
-                    <Link
-                      to={`/details/${hotel.id}`}
-                      className="hover-bg-primary"
-                    >
+                    <Link to={`/details/${hotel.id}`}>
                       <img
                         src={hotel.mainImage}
                         className="img-fluid rounded"
                         alt={hotel.name}
+                        style={{ width: "80%" }}
                       />
                     </Link>
+
+                    <div
+                      className="d-flex flex-wrap rounded"
+                      style={{ width: "80%" }}
+                    >
+                      {hotel.gallery.slice(0, 10).map((image, index) => (
+                        <Link to={`/details/${hotel.id}`}>
+                          <img
+                            key={index}
+                            src={image}
+                            className="m-class"
+                            width="60"
+                            height="50"
+                            alt="Gallery"
+                          />
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="col-md-5">
+                  <div className="col-md-5 col-class">
                     <div className="card-body">
-                      <h5 className="card-title fw-bold text-muted">
+                      <Link
+                        to={`/details/${hotel.id}`}
+                        href="#"
+                        className=" nav-class navbar-brand  fs-5 card-title fw-bold "
+                      >
                         {hotel.name}
-                      </h5>
-                      <p>{hotel.Star}</p>
-                      <p className="text-muted">{hotel.discription}</p>
+                        <br />
+                        {hotel.place}
+                      </Link>
                       <p>
-                        <span className="text-primary">{hotel.location}</span>
+                        {hotel.Star}
+                        <span className="text-primary">
+                          {hotel.location}
+                          <Link
+                            to="#"
+                            className="ms-2 text-decoration-none text-primary hover-bg-primary"
+                          >
+                            - View on map
+                          </Link>
+                        </span>
                       </p>
+
+                      <div className="fs-class fw-bold">
+                        <span className=" text-dark p-1 border border-muted me-1">
+                          Free Wi-Fi
+                        </span>
+                        <span className=" text-dark p-1 border border-muted me-1">
+                          Car park
+                        </span>
+                        <span className=" text-dark p-1 border border-muted me-1">
+                          Front desk (24-hour)
+                        </span>
+                        <span className="text-dark p-1 border border-muted">
+                          +5
+                        </span>
+                      </div>
+
+                      <p className="text-muted mt-3">{hotel.discription}</p>
                     </div>
                   </div>
                   <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">

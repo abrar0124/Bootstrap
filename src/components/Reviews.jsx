@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-    price: 5000,
+    price: 29000,
     Star: "⭐⭐⭐",
     rating: 4,
     review: "6.9 Good",
@@ -16,7 +16,7 @@ const hotelsData = [
   },
   {
     name: "B’Shan Apartments",
-    price: 3000,
+    price: 30000,
     Star: "⭐⭐",
     rating: 4,
     review: "5.9 Review Score",
@@ -26,7 +26,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
-    price: 1000,
+    price: 31000,
     Star: "⭐",
     rating: 4,
     review: "6.7 Good",
@@ -49,7 +49,7 @@ const Reviews = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = selectedPrice == null || hotel.price == selectedPrice;
+    const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice;
   });
   return (

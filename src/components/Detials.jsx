@@ -54,7 +54,7 @@ const Details = () => {
           {/* Thumbnail Gallery */}
           <div className="col-md-6">
             <div className="d-flex flex-wrap gap-2">
-              {hotel.gallery.map((image, index) => (
+              {hotel.gallery.slice(0, 6).map((image, index) => (
                 <img
                   key={index}
                   src={image}
