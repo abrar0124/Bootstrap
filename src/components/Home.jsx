@@ -18,12 +18,13 @@ import Textbootstrap from "./Textbootstrap";
 import Bootstrapfooter from "./Bootstrapfooter1";
 import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
-import { setSearchQuery } from "../Redux/Hotelslice";
+import { setSearchQuery, setSelectedDate } from "../Redux/Hotelslice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.hotels.searchQuery);
+  const selectedDate = useSelector((state) => state.hotels.selectedDate);
 
   const handleSearch = (e) => {
     dispatch(setSearchQuery(e.target.value));
@@ -64,9 +65,19 @@ const Home = () => {
                 flex: 1,
               }}
             >
-              <input type="date" className="form-control m-2 border-0" />
-
-              <input type="date" className="form-control m-2 border-0" />
+              {/* <input type="date" className="form-control m-2 border-0" /> */}
+              <input
+                type="date"
+                className="form-control"
+                value={selectedDate}
+                onChange={(e) => dispatch(setSelectedDate(e.target.value))}
+              />
+              <input
+                type="date"
+                className="form-control m-2 border-0"
+                value={selectedDate}
+                onChange={(e) => dispatch(setSelectedDate(e.target.value))}
+              />
             </div>
 
             <select

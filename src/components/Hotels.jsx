@@ -8,6 +8,7 @@ const hotels = [
     rating: 6.9,
     reviews: 2109,
     price: 1005, // ✅ Numeric Price
+    availableDates: "2025-02-28", // ✅ Correct Format
     discription:
       "Great place to stay - we booked it on a chance as we needed cheap accommodation on a Monday night near to Brixton Academy - it's a short walk from a tube",
     mainImage: "/Images/hotel1.webp",
@@ -30,6 +31,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 3000, // ✅ Numeric Price
+    availableDates: "2025-03-01",
+
     discription:
       "Can't beat this for the price in a London hotel. Booking through Agoda considerably cheaper than other sites",
     mainImage: "/Images/Courthotel.webp",
@@ -52,6 +55,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 4000, // ✅ Numeric Price
+    availableDates: "2025-03-02",
+
     discription:
       "The customer service was really amazing! Specially a lady Aurélie made the difference, she was always smiling and interacting with every guest and she was",
     mainImage: "/Images/bed1.webp",
@@ -75,6 +80,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 5000, // ✅ Numeric Price
+    availableDates: "2025-03-03",
+
     discription: "Great value for money",
     mainImage: "/Images/bedroom.jpg",
     gallery: [
@@ -97,6 +104,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 6000, // ✅ Numeric Price
+    availableDates: "2025-03-04",
+
     discription:
       "This time, I wanted to find out nice hostel in London. I did use first time this hostel. As I did operation after, I was really worried about . But this hostel was great",
     mainImage: "/Images/holidays.webp",
@@ -120,6 +129,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 7000, // ✅ Numeric Price
+    availableDates: "2025-03-05",
+
     discription: "The hotel room is big, great location and lovely staff",
     mainImage: "/Images/whiteferry.webp",
     gallery: [
@@ -141,6 +152,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 8000, // ✅ Numeric Price
+    availableDates: "2025-03-06",
+
     discription:
       "Location was superb, staff was friendly and helpful, food in the pub was very good. Rooms are clean, with door locks and lockers for your gear while out for the",
     mainImage: "/Images/Queens.webp",
@@ -164,6 +177,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 9000, // ✅ Numeric Price
+    availableDates: "2025-03-07",
+
     mainImage: "/Images/hotel41.webp",
     gallery: [
       "/Images/hotel46.jpg",
@@ -185,6 +200,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 10000, // ✅ Numeric Price
+    availableDates: "2025-03-08",
+
     discription:
       "This is not a paid but honest sincere review on my stay here. This was my 2nd stay since Feb 2016. My recent stay from 19-28 dec was a blessed one! Im",
     mainImage: "/Images/ibis.webp",
@@ -208,6 +225,8 @@ const hotels = [
     rating: 8.2,
     reviews: 3405,
     price: 11000, // ✅ Numeric Price
+    availableDates: "2025-03-09",
+
     discription:
       "The staff at the front desk is very friendly and helpful during the check-in. A thumbs up for her. The room is beyond my expectation. I thought the room is poor",
     mainImage: "/Images/dover1.jpg",

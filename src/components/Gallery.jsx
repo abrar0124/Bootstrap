@@ -6,10 +6,10 @@ import "./customscss.scss";
 
 const Gallery = () => {
   const dispatch = useDispatch();
-  const { hotels, searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { hotels, searchQuery, selectedDate, selectedStars, selectedPrice } =
+    useSelector((state) => state.hotels);
   // Filtering Logic
+
   const filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -19,7 +19,10 @@ const Gallery = () => {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = hotel.price >= selectedPrice;
-    return matchesSearch && matchesStars && matchesPrice;
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
+    console.log("Selected Date:", selectedDate);
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
   return (
     <div className="container mt-4">
@@ -143,8 +146,13 @@ const Gallery = () => {
                           +5
                         </span>
                       </div>
-
                       <p className="text-muted mt-3">{hotel.discription}</p>
+                      <p className="fw-bold ">
+                        Available dates:
+                        <span className=" ms-2 fw-normal">
+                          {hotel.availableDates}
+                        </span>
+                      </p>
                     </div>
                   </div>
                   <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">

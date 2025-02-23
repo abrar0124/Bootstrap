@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import hotelsData from "../components/Hotels"; //  Hotels ka data import karna na bhoolain
+
 const initialState = {
-  hotels: hotelsData, //  Default hotels data
+  hotels: hotelsData, // Your hotel data
   searchQuery: "",
   selectedStars: [],
-  selectedPrice: null, //  Default null,
+  selectedPrice: null,
+  selectedDate: null, // New state for date filter
 };
+
 const hotelSlice = createSlice({
   name: "hotels",
   initialState,
@@ -15,20 +18,24 @@ const hotelSlice = createSlice({
     },
     toggleStarFilter: (state, action) => {
       const star = action.payload;
-      if (state.selectedStars.includes(star)) {
-        state.selectedStars = state.selectedStars.filter((s) => s !== star);
-      } else {
-        state.selectedStars.push(star);
-      }
+      state.selectedStars.includes(star)
+        ? (state.selectedStars = state.selectedStars.filter((s) => s !== star))
+        : state.selectedStars.push(star);
     },
     setPriceFilter: (state, action) => {
       state.selectedPrice = action.payload;
     },
+    setSelectedDate: (state, action) => {
+      // New action
+      state.selectedDate = action.payload;
+    },
   },
 });
-//  Actions Export
-export const { setSearchQuery, toggleStarFilter, setPriceFilter } =
-  hotelSlice.actions;
 
-//  Reducer Export
+export const {
+  setSearchQuery,
+  toggleStarFilter,
+  setPriceFilter,
+  setSelectedDate,
+} = hotelSlice.actions;
 export default hotelSlice.reducer;
