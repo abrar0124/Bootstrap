@@ -5,6 +5,7 @@ const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
     price: 12000,
+    availableDates: "2025-03-01",
     Star: "⭐⭐⭐",
     image: "/Images/accom.webp",
     rating: 4,
@@ -16,6 +17,7 @@ const hotelsData = [
   {
     name: "B’Shan Apartments",
     price: 13000,
+    availableDates: "2025-03-02",
     Star: "⭐",
     image: "/Images/accomo1.webp",
     rating: 4,
@@ -27,6 +29,7 @@ const hotelsData = [
   {
     name: "Park Avenue Hyde Park",
     price: 14000,
+    availableDates: "2025-03-03",
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/accomo2.webp",
     rating: 4,
@@ -38,9 +41,8 @@ const hotelsData = [
   },
 ];
 const Accomos = () => {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -50,7 +52,9 @@ const Accomos = () => {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = hotel.price >= selectedPrice;
-    return matchesSearch && matchesStars && matchesPrice;
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
 
   return (
@@ -80,6 +84,12 @@ const Accomos = () => {
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>

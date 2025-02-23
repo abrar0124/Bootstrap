@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Luxury Hotel Oval",
+    availableDates: "2025-03-10",
     price: 21000,
     Star: "⭐⭐⭐⭐",
     image: "/Images/Luxuryhotel1.webp",
@@ -17,6 +18,7 @@ const hotelsData = [
   },
   {
     name: "B,Shan luxury Apartments",
+    availableDates: "2025-03-11",
     price: 22000,
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/Luxuryhotel2.webp",
@@ -28,6 +30,8 @@ const hotelsData = [
   },
   {
     name: "Avanue Luxury Hyde Park",
+    availableDates: "2025-03-12",
+
     price: 23000,
     Star: "⭐⭐⭐",
     image: "/Images/Luxuryhotel3.webp",
@@ -41,9 +45,8 @@ const hotelsData = [
 ];
 
 const Luxuryhotel = () => {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -53,8 +56,9 @@ const Luxuryhotel = () => {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = hotel.price >= selectedPrice;
-
-    return matchesSearch && matchesStars && matchesPrice;
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
   return (
     <>
@@ -85,6 +89,12 @@ const Luxuryhotel = () => {
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>

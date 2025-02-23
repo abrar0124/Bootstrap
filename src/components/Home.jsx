@@ -26,9 +26,6 @@ const Home = () => {
   const searchQuery = useSelector((state) => state.hotels.searchQuery);
   const selectedDate = useSelector((state) => state.hotels.selectedDate);
 
-  const handleSearch = (e) => {
-    dispatch(setSearchQuery(e.target.value));
-  };
   return (
     <>
       <div
@@ -55,7 +52,7 @@ const Home = () => {
                 type="search"
                 placeholder="Search hotels..."
                 value={searchQuery}
-                onChange={handleSearch}
+                onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               />
             </div>
 
@@ -65,7 +62,6 @@ const Home = () => {
                 flex: 1,
               }}
             >
-              {/* <input type="date" className="form-control m-2 border-0" /> */}
               <input
                 type="date"
                 className="form-control"

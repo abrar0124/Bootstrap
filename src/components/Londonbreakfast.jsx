@@ -8,7 +8,7 @@ const hotelsData = [
     name: "Belgrave Hotel Oval",
     price: 32000,
     Star: "⭐⭐⭐",
-
+    availableDates: "2025-03-18",
     image: "/Images/break1.webp",
     rating: 4,
     review: "6.9 Good",
@@ -20,7 +20,7 @@ const hotelsData = [
     price: 33000,
     name: "B’Shan Apartments",
     Star: "⭐⭐⭐⭐",
-
+    availableDates: "2025-03-19",
     image: "/Images/break2.jpg",
     rating: 4,
     review: "5.9 Review Score",
@@ -31,6 +31,7 @@ const hotelsData = [
   {
     name: "Park Avenue Hyde Park",
     price: 34000,
+    availableDates: "2025-03-20",
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/break3.webp",
     rating: 4,
@@ -43,9 +44,8 @@ const hotelsData = [
 ];
 
 const Londonbreakfast = () => {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -54,9 +54,10 @@ const Londonbreakfast = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
     const matchesPrice = hotel.price >= selectedPrice;
-    return matchesSearch && matchesStars && matchesPrice;
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
   return (
     <>
@@ -86,7 +87,13 @@ const Londonbreakfast = () => {
                     <p>{hotel.Star}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
-                      <small>{hotel.reviewer}</small>
+                      <small>{hotel.reviewer}Reviews</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>

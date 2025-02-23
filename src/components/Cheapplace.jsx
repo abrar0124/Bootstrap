@@ -5,6 +5,7 @@ const hotelsData = [
   {
     name: "Special Hotel Oval",
     price: 15000,
+    availableDates: "2025-03-04",
     Star: "⭐⭐⭐",
     image: "/Images/cheap1.webp",
     rating: 4,
@@ -15,6 +16,8 @@ const hotelsData = [
   },
   {
     name: "Shan Apartments",
+    availableDates: "2025-03-05",
+
     Star: "⭐⭐",
     price: 16000,
     image: "/Images/cheap2.webp",
@@ -26,6 +29,8 @@ const hotelsData = [
   },
   {
     name: "Cheap Avenue Hyde Park",
+    availableDates: "2025-03-06",
+
     price: 17000,
     Star: "⭐",
     image: "/Images/cheap3.webp",
@@ -38,9 +43,8 @@ const hotelsData = [
   },
 ];
 function Cheapplace() {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -50,7 +54,9 @@ function Cheapplace() {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = hotel.price >= selectedPrice;
-    return matchesSearch && matchesStars && matchesPrice;
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
   return (
     <>
@@ -81,6 +87,12 @@ function Cheapplace() {
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>

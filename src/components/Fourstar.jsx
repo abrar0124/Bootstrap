@@ -7,6 +7,7 @@ const hotelsData = [
   {
     name: "Four-star1 Hotel Oval",
     price: 18000,
+    availableDates: "2025-03-07",
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar1.webp",
     rating: 4,
@@ -18,6 +19,8 @@ const hotelsData = [
   {
     name: "Four-star2 Apartments",
     price: 19000,
+    availableDates: "2025-03-08",
+
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar3.webp",
     rating: 4,
@@ -29,6 +32,7 @@ const hotelsData = [
   {
     name: "Civic Hyde Park",
     price: 20000,
+    availableDates: "2025-03-09",
     Star: "⭐⭐⭐⭐",
     image: "/Images/fourstar2.jpg",
     rating: 4,
@@ -40,9 +44,8 @@ const hotelsData = [
   },
 ];
 const Fourstar = () => {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -51,9 +54,10 @@ const Fourstar = () => {
       lowerCaseName.startsWith(lowerCaseQuery);
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
     const matchesPrice = hotel.price >= selectedPrice;
-    return matchesSearch && matchesStars && matchesPrice;
+    return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
 
   return (
@@ -86,6 +90,12 @@ const Fourstar = () => {
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>

@@ -7,6 +7,7 @@ const hotelsData = [
   {
     name: "Upcoming Hotel Oval",
     price: 24000,
+    availableDates: "2025-03-13",
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/event1.jpg",
     rating: 4,
@@ -18,6 +19,8 @@ const hotelsData = [
   {
     price: 25000,
     name: "Oval Spcial Apartments",
+    availableDates: "2025-03-14",
+
     Star: "⭐⭐",
     image: "/Images/event2.jpg",
     rating: 4,
@@ -28,6 +31,8 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
+    availableDates: "2025-03-15",
+
     price: 26000,
     Star: "⭐",
     image: "/Images/event3.jpg",
@@ -40,9 +45,8 @@ const hotelsData = [
   },
 ];
 const Upcomingevent = () => {
-  const { searchQuery, selectedStars, selectedPrice } = useSelector(
-    (state) => state.hotels
-  );
+  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+    useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -52,7 +56,8 @@ const Upcomingevent = () => {
     const matchesStars =
       selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
     const matchesPrice = hotel.price >= selectedPrice;
-
+    const matchesDate =
+      selectedDate == null || hotel.availableDates == selectedDate;
     return matchesSearch && matchesStars && matchesPrice;
   });
   return (
@@ -85,6 +90,12 @@ const Upcomingevent = () => {
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
                   </div>
