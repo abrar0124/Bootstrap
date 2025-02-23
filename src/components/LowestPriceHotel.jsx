@@ -1,85 +1,20 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Text from "./Text";
-import { toggleStarFilter, setPriceFilter } from "../Redux/Hotelslice";
+import Header from "./Header";
 import "./customscss.scss";
+const LowestPriceHotels = () => {
+  const hotels = useSelector((state) => state.hotels.hotels);
 
-const Gallery = () => {
-  const dispatch = useDispatch();
-  const { hotels, searchQuery, selectedDate, selectedStars, selectedPrice } =
-    useSelector((state) => state.hotels);
-  // Filtering Logic
+  // Sorting hotels by price (lowest to highest)
+  const filteredHotels = [...hotels].sort((a, b) => a.price - b.price);
 
-  const filteredHotels = hotels.filter((hotel) => {
-    const lowerCaseName = hotel.name.toLowerCase();
-    const lowerCaseQuery = searchQuery.toLowerCase();
-    const matchesSearch =
-      lowerCaseName.includes(lowerCaseQuery) ||
-      lowerCaseName.startsWith(lowerCaseQuery);
-    const matchesStars =
-      selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = hotel.price >= selectedPrice;
-    const matchesDate =
-      selectedDate == null || hotel.availableDates == selectedDate;
-    console.log("Selected Date:", selectedDate);
-    return matchesSearch && matchesStars && matchesPrice && matchesDate;
-  });
   return (
-    <div className="container mt-4">
-      <Text type="h2" content={"Hotels in London"} />
-      <div className="row">
-        {/* Sidebar for Filters */}
-        <div className="col-md-3">
-          <div className="card p-3" style={{ width: "70%", marginLeft: "34%" }}>
-            <Text type={"h5"} content={"Rating"} />
-            {[5, 4, 3, 2, 1].map((star) => (
-              <div className="form-check lh-lg" key={star}>
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  checked={selectedStars.includes(star)}
-                  onChange={() => dispatch(toggleStarFilter(star))}
-                />
-                <label className="form-check-label">{star} stars</label>
-              </div>
-            ))}
-            {/* Price Filter */}
-            <div className="mt-3">
-              <Text type={"h5"} content={"Price PKR"} />
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Enter price..."
-                value={selectedPrice}
-                onChange={(e) => {
-                  const price = e.target.value ? Number(e.target.value) : null;
-                  dispatch(setPriceFilter(price));
-                }}
-                onWheel={(e) => e.target.blur()} // Scroll disable
-              />
-            </div>
-          </div>
-        </div>
-        {/* Hotel List */}
-        <div className="col-md-9">
-          <div className="btn-group mb-3 w-100">
-            <button className="p-3 btn btn-primary border btn-lg">
-              Our top picks
-            </button>
-            <Link to="/lowest-price">
-              <button className="custom-btn p-3 btn border btn-lg">
-                Lowest price first
-              </button>
-            </Link>
-
-            <button className="custom-btn p-3 btn border btn-lg">
-              Nearest to ▼
-            </button>
-            <button className="custom-btn p-3 btn border btn-lg">
-              Best reviewed
-            </button>
-          </div>
-
+    <>
+      <Header />
+      <div className="n-class">
+        <h2 className="h-class">Hotels Sorted by Lowest Price</h2>
+        <div className="row mx-auto w-75">
           {filteredHotels.length > 0 ? (
             filteredHotels.map((hotel) => (
               <div key={hotel.id} className="card mb-4 p-3 shadow-sm">
@@ -90,7 +25,7 @@ const Gallery = () => {
                         src={hotel.mainImage}
                         className="img-fluid rounded"
                         alt={hotel.name}
-                        style={{ width: "80%" }}
+                        style={{ width: "65%" }}
                       />
                     </Link>
 
@@ -180,8 +115,8 @@ const Gallery = () => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Gallery;
+export default LowestPriceHotels;

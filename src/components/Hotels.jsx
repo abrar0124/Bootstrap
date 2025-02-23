@@ -7,7 +7,7 @@ const hotels = [
     location: "Canary Wharf,",
     rating: 6.9,
     reviews: 2109,
-    price: 1005, // ✅ Numeric Price
+    price: 11000, // ✅ Numeric Price
     availableDates: "2025-02-28", // ✅ Correct Format
     discription:
       "Great place to stay - we booked it on a chance as we needed cheap accommodation on a Monday night near to Brixton Academy - it's a short walk from a tube",
@@ -30,7 +30,7 @@ const hotels = [
     location: "St Katharine's",
     rating: 8.2,
     reviews: 3405,
-    price: 3000, // ✅ Numeric Price
+    price: 9000, // ✅ Numeric Price
     availableDates: "2025-03-01",
 
     discription:
@@ -54,7 +54,7 @@ const hotels = [
     location: "St Katharine's, London",
     rating: 8.2,
     reviews: 3405,
-    price: 4000, // ✅ Numeric Price
+    price: 10000, // ✅ Numeric Price
     availableDates: "2025-03-02",
 
     discription:
@@ -79,7 +79,7 @@ const hotels = [
     location: "St Katharine's, London",
     rating: 8.2,
     reviews: 3405,
-    price: 5000, // ✅ Numeric Price
+    price: 7000, // ✅ Numeric Price
     availableDates: "2025-03-03",
 
     discription: "Great value for money",
@@ -103,7 +103,7 @@ const hotels = [
     location: "St Katharine's, London",
     rating: 8.2,
     reviews: 3405,
-    price: 6000, // ✅ Numeric Price
+    price: 8000, // ✅ Numeric Price
     availableDates: "2025-03-04",
 
     discription:
@@ -128,7 +128,7 @@ const hotels = [
     location: "St Katharine's",
     rating: 8.2,
     reviews: 3405,
-    price: 7000, // ✅ Numeric Price
+    price: 4000, // ✅ Numeric Price
     availableDates: "2025-03-05",
 
     discription: "The hotel room is big, great location and lovely staff",
@@ -151,7 +151,7 @@ const hotels = [
     location: "St Katharine's,",
     rating: 8.2,
     reviews: 3405,
-    price: 8000, // ✅ Numeric Price
+    price: 5000, // ✅ Numeric Price
     availableDates: "2025-03-06",
 
     discription:
@@ -176,7 +176,7 @@ const hotels = [
     location: "St Katharine's, London",
     rating: 8.2,
     reviews: 3405,
-    price: 9000, // ✅ Numeric Price
+    price: 1000, // ✅ Numeric Price
     availableDates: "2025-03-07",
 
     mainImage: "/Images/hotel41.webp",
@@ -199,7 +199,7 @@ const hotels = [
     location: "St Katharine's  London",
     rating: 8.2,
     reviews: 3405,
-    price: 10000, // ✅ Numeric Price
+    price: 2000, // ✅ Numeric Price
     availableDates: "2025-03-08",
 
     discription:
@@ -224,7 +224,7 @@ const hotels = [
     location: "St Katharine's , London",
     rating: 8.2,
     reviews: 3405,
-    price: 11000, // ✅ Numeric Price
+    price: 3000, // ✅ Numeric Price
     availableDates: "2025-03-09",
 
     discription:
