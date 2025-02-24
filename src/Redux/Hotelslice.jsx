@@ -6,7 +6,9 @@ const initialState = {
   searchQuery: "",
   selectedStars: [],
   selectedPrice: null,
-  selectedDate: null, // New state for date filter
+  selectedDate: null,
+  sortBy: null,
+  // New state for date filter
 };
 
 const hotelSlice = createSlice({
@@ -29,6 +31,9 @@ const hotelSlice = createSlice({
       // New action
       state.selectedDate = action.payload;
     },
+    setSortBy: (state, action) => {
+      state.sortBy = action.payload;
+    },
   },
 });
 
@@ -37,5 +42,6 @@ export const {
   toggleStarFilter,
   setPriceFilter,
   setSelectedDate,
+  setSortBy,
 } = hotelSlice.actions;
 export default hotelSlice.reducer;

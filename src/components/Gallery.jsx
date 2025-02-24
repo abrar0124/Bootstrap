@@ -1,16 +1,25 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Text from "./Text";
-import { toggleStarFilter, setPriceFilter } from "../Redux/Hotelslice";
+import {
+  toggleStarFilter,
+  setPriceFilter,
+  setSortBy,
+} from "../Redux/Hotelslice";
 import "./customscss.scss";
 
 const Gallery = () => {
   const dispatch = useDispatch();
-  const { hotels, searchQuery, selectedDate, selectedStars, selectedPrice } =
-    useSelector((state) => state.hotels);
+  const {
+    hotels,
+    searchQuery,
+    selectedDate,
+    sortBy,
+    selectedStars,
+    selectedPrice,
+  } = useSelector((state) => state.hotels);
   // Filtering Logic
-
-  const filteredHotels = hotels.filter((hotel) => {
+  let filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
     const matchesSearch =
@@ -24,6 +33,12 @@ const Gallery = () => {
     console.log("Selected Date:", selectedDate);
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
+
+  // Sorting Logic (this was causing the error)
+  if (sortBy === "price_lowest") {
+    filteredHotels.sort((a, b) => a.price - b.price);
+    console.log("SortBy Updated:", sortBy); // Console mai check karne ke liye
+  }
   return (
     <div className="container mt-4">
       <Text type="h2" content={"Hotels in London"} />
@@ -40,6 +55,7 @@ const Gallery = () => {
                   checked={selectedStars.includes(star)}
                   onChange={() => dispatch(toggleStarFilter(star))}
                 />
+
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
@@ -66,11 +82,15 @@ const Gallery = () => {
             <button className="p-3 btn btn-primary border btn-lg">
               Our top picks
             </button>
-            <Link to="/lowest-price">
-              <button className="custom-btn p-3 btn border btn-lg">
-                Lowest price first
-              </button>
-            </Link>
+
+            <button
+              className="custom-btn p-3 btn border btn-lg"
+              onClick={() => {
+                dispatch(setSortBy("price_lowest"));
+              }}
+            >
+              Lowest price
+            </button>
 
             <button className="custom-btn p-3 btn border btn-lg">
               Nearest to ▼

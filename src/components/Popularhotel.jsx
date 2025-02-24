@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-    price: 26000,
+    price: 43000,
     availableDates: "2025-03-16",
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/popular1.webp",
@@ -17,7 +17,7 @@ const hotelsData = [
     reviewer: "Zaiton, Singapore",
   },
   {
-    price: 27000,
+    price: 38000,
     name: "B’Shan Apartments",
     availableDates: "2025-03-17",
     Star: "⭐⭐⭐",
@@ -29,7 +29,7 @@ const hotelsData = [
     reviewer: "Zaiton, Singapore",
   },
   {
-    price: 28000,
+    price: 45000,
     name: "Park Avenue Hyde Park",
     availableDates: "2025-03-18",
     Star: "⭐⭐",
@@ -44,7 +44,7 @@ const hotelsData = [
 ];
 
 const Popularhotel = () => {
-  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+  const { searchQuery, selectedStars, selectedPrice, selectedDate, sortBy } =
     useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
@@ -59,6 +59,12 @@ const Popularhotel = () => {
       selectedDate == null || hotel.availableDates == selectedDate;
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
+
+  // Sorting Logic (this was causing the error)
+  if (sortBy === "price_lowest") {
+    filteredHotels.sort((a, b) => a.price - b.price);
+    console.log("SortBy Updated:", sortBy); // Console mai check karne ke liye
+  }
   return (
     <>
       <div className="container border-top">

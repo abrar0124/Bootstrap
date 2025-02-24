@@ -4,7 +4,7 @@ import React from "react";
 const hotelsData = [
   {
     name: "Special Hotel Oval",
-    price: 15000,
+    price: 19000,
     availableDates: "2025-03-04",
     Star: "⭐⭐⭐",
     image: "/Images/cheap1.webp",
@@ -19,7 +19,7 @@ const hotelsData = [
     availableDates: "2025-03-05",
 
     Star: "⭐⭐",
-    price: 16000,
+    price: 21000,
     image: "/Images/cheap2.webp",
     rating: 4,
     review: "5.9 Review Score",
@@ -43,7 +43,7 @@ const hotelsData = [
   },
 ];
 function Cheapplace() {
-  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
+  const { searchQuery, selectedStars, selectedPrice, selectedDate, sortBy } =
     useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
@@ -58,6 +58,12 @@ function Cheapplace() {
       selectedDate == null || hotel.availableDates == selectedDate;
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
+
+  // Sorting Logic (this was causing the error)
+  if (sortBy === "price_lowest") {
+    filteredHotels.sort((a, b) => a.price - b.price);
+    console.log("SortBy Updated:", sortBy); // Console mai check karne ke liye
+  }
   return (
     <>
       <div className="container border-top">
