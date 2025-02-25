@@ -44,8 +44,14 @@ const hotelsData = [
 ];
 
 const Londonbreakfast = () => {
-  const { searchQuery, selectedStars, selectedPrice, selectedDate, sortBy } =
-    useSelector((state) => state.hotels);
+  const {
+    searchQuery,
+    selectedStars,
+    selectedPrice,
+    selectedDate,
+    sortBy,
+    isAscending,
+  } = useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -59,11 +65,11 @@ const Londonbreakfast = () => {
     const matchesPrice = hotel.price >= selectedPrice;
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
-
-  // Sorting Logic (this was causing the error)
   if (sortBy === "price_lowest") {
-    filteredHotels.sort((a, b) => a.price - b.price);
-    console.log("SortBy Updated:", sortBy); // Console mai check karne ke liye
+    filteredHotels.sort((a, b) =>
+      isAscending ? a.price - b.price : b.price - a.price
+    );
+    console.log(isAscending);
   }
   return (
     <>

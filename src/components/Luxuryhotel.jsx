@@ -45,8 +45,14 @@ const hotelsData = [
 ];
 
 const Luxuryhotel = () => {
-  const { searchQuery, selectedStars, selectedPrice, selectedDate } =
-    useSelector((state) => state.hotels);
+  const {
+    searchQuery,
+    selectedStars,
+    selectedPrice,
+    selectedDate,
+    sortBy,
+    isAscending,
+  } = useSelector((state) => state.hotels);
   const filteredHotels = hotelsData.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -60,6 +66,12 @@ const Luxuryhotel = () => {
       selectedDate == null || hotel.availableDates == selectedDate;
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
+  if (sortBy === "price_lowest") {
+    filteredHotels.sort((a, b) =>
+      isAscending ? a.price - b.price : b.price - a.price
+    );
+    console.log(isAscending);
+  }
   return (
     <>
       <div className="container border-top">

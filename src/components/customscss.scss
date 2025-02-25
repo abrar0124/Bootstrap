@@ -69,7 +69,7 @@
 .max-class {
   width: 42.5%;
   margin-left: 13%;
-  margin-top: 0.5%;
+  margin-top: -5%;
 }
 .text {
   width: 98%;
@@ -81,8 +81,30 @@
 }
 .fs {
   font-size: 16px;
+  margin-bottom: 10px;
 }
 .bgs {
-  background-color: rgb(212, 212, 212);
-  padding: 10px;
+  background-color: rgb(238, 238, 238);
+}
+.danger {
+  background-color: rgb(255, 225, 225);
+  margin-top: 3%;
+  border-radius: 20px;
+}
+
+.ms {
+  margin-left: 42%;
+}
+.ff {
+  font-size: 14px;
+}
+.mss {
+  margin-left: 49%;
+}
+.md {
+  margin-top: -10%;
+}
+.g {
+  width: 20%;
+  margin-left: 80%;
 }

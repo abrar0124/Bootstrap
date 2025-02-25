@@ -25,12 +25,11 @@ const HotelBookingPage = () => {
           We are holding your price...
           <span className=" text-danger fw-bold">00:19:24</span>
         </div>
-
         {/* Main Content */}
         <div className="container w-75">
           <div className=" row mt-4">
             {/* Left Side - Form */}
-            <div className="col-lg-7">
+            <div className="col-md-7">
               <div className="card p-4 shadow-sm border rounded-3">
                 <h5 className="fw-bold">Who's the lead guest?</h5>
                 <form>
@@ -136,36 +135,64 @@ const HotelBookingPage = () => {
               </div>
             </div>
             {/* Right Side - Booking Summary */}
-            <div className="col-lg-4">
+            <div className="col-md-4">
               <div className="card p-3 shadow-sm border rounded-3">
                 <h6 className="fw-bold">
                   Britannia International Hotel <br /> Canary Wharf
                 </h6>
                 <p>⭐⭐⭐⭐</p>
                 <p className="text-primary fw-bold ">
-                  6.9 Good <span className="text-muted">(2133 reviews)</span>
+                  6.9 Good{" "}
+                  <span className="text-muted fw-normal">(2133 reviews)</span>
                 </p>
-                <p className="fs">163 Marsh Wall, Canary Wharf, London</p>
-                <p className=" fs text-primary fw-bold">What,s Nearby</p>
+                <p className="fs">163 Marsh Wall, Canary Wharf, London,...</p>
+                <p className=" fs text-primary fw-bold ">What,s Nearby</p>
                 <div className="bg-color p-3 rounded">
                   <p className=" fs fw-bold">1 x Standard Double Room</p>
                   <p className="fs">20m² | Max: 2 adults</p>
+                  <p className=" fs text-success fw-bold">
+                    Luggage storage available
+                  </p>
+                  <p className=" fs text-success fw-bold">24 hours check-in</p>
                   <p>1 double bed | 24-hour check-in</p>
                   <p className=" fs text-danger fw-bold">
-                    Hurry! Last room for your dates
+                    Hurry! Last room for your dates at this place
                   </p>
                 </div>
               </div>
-              <div className="shadow p-4 rounded mt-2">
-                <div className="bgs p-3 rounded">
-                  <p className="fs">
-                    Original Price: <del>PKR 1,194,374.12</del>
+              <div className="shadow p-2 text-center  danger">
+                <p className=" fs text-danger fw-bold">
+                  Hurry! last room for your dates at this place
+                </p>
+              </div>
+              <div className="shadow p-2 text-center  danger">
+                <p className=" fs text-danger ">
+                  It,s only <span className="text-danger fw-bold">10</span> days
+                  untilss your check{" "}
+                  <span className="fw-bold">
+                    Rates may rise if you don,t book now
+                  </span>
+                </p>
+              </div>
+              <div className="shadow rounded mt-2">
+                <div className="bgs rounded">
+                  <p>
+                    {" "}
+                    <img className="g" src="/Images/img38.png" alt="" />
                   </p>
-                  <p className="fs">Room Price: PKR 738,660.49</p>
+                  <p className="ff p-2">
+                    Original Price:{" "}
+                    <del className="ms fw-medium">PKR 1,194,374.12</del>
+                  </p>
+
+                  <p className=" ff fs p-2 mb-5">
+                    Room Price:{" "}
+                    <span className="mss fw-medium ">PKR 738,660.49 </span>
+                  </p>
                 </div>
                 <div className="d-flex gap-5 mt-2 justify-content-between">
-                  <h5 className="fs">Price</h5>
-                  <h4 className=" fs ">PKR 886,392.58</h4>
+                  <h5 className="fs md ms-2">Price</h5>
+                  <h4 className=" fs md ">PKR 886,392.58</h4>
                 </div>
               </div>
             </div>

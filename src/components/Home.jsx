@@ -20,12 +20,10 @@ import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
 import { setSearchQuery, setSelectedDate } from "../Redux/Hotelslice";
 import { useDispatch, useSelector } from "react-redux";
-
 const Home = () => {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.hotels.searchQuery);
   const selectedDate = useSelector((state) => state.hotels.selectedDate);
-
   return (
     <>
       <div
