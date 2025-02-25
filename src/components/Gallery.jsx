@@ -5,6 +5,7 @@ import {
   toggleStarFilter,
   setPriceFilter,
   setSortBy,
+  toggleSortOrder, // Import new action
 } from "../Redux/Hotelslice";
 import "./customscss.scss";
 
@@ -17,7 +18,9 @@ const Gallery = () => {
     sortBy,
     selectedStars,
     selectedPrice,
+    isAscending,
   } = useSelector((state) => state.hotels);
+
   // Filtering Logic
   let filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
@@ -30,20 +33,21 @@ const Gallery = () => {
     const matchesPrice = hotel.price >= selectedPrice;
     const matchesDate =
       selectedDate == null || hotel.availableDates == selectedDate;
-    console.log("Selected Date:", selectedDate);
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
 
-  // Sorting Logic (this was causing the error)
+  // Sorting Logic
   if (sortBy === "price_lowest") {
-    filteredHotels.sort((a, b) => a.price - b.price);
-    console.log("SortBy Updated:", sortBy); // Console mai check karne ke liye
+    filteredHotels.sort((a, b) =>
+      isAscending ? a.price - b.price : b.price - a.price
+    );
+    console.log(isAscending);
   }
+
   return (
     <div className="container mt-4">
       <Text type="h2" content={"Hotels in London"} />
       <div className="row">
-        {/* Sidebar for Filters */}
         <div className="col-md-3">
           <div className="card p-3" style={{ width: "70%", marginLeft: "34%" }}>
             <Text type={"h5"} content={"Rating"} />
@@ -55,11 +59,9 @@ const Gallery = () => {
                   checked={selectedStars.includes(star)}
                   onChange={() => dispatch(toggleStarFilter(star))}
                 />
-
                 <label className="form-check-label">{star} stars</label>
               </div>
             ))}
-            {/* Price Filter */}
             <div className="mt-3">
               <Text type={"h5"} content={"Price PKR"} />
               <input
@@ -71,12 +73,11 @@ const Gallery = () => {
                   const price = e.target.value ? Number(e.target.value) : null;
                   dispatch(setPriceFilter(price));
                 }}
-                onWheel={(e) => e.target.blur()} // Scroll disable
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </div>
         </div>
-        {/* Hotel List */}
         <div className="col-md-9">
           <div className="btn-group mb-3 w-100">
             <button className="p-3 btn btn-primary border btn-lg">
@@ -87,11 +88,11 @@ const Gallery = () => {
               className="custom-btn p-3 btn border btn-lg"
               onClick={() => {
                 dispatch(setSortBy("price_lowest"));
+                dispatch(toggleSortOrder()); // Redux se sorting toggle
               }}
             >
-              Lowest price
+              {isAscending ? "Check highest price" : "Check Lowest price"}
             </button>
-
             <button className="custom-btn p-3 btn border btn-lg">
               Nearest to ▼
             </button>
@@ -99,7 +100,6 @@ const Gallery = () => {
               Best reviewed
             </button>
           </div>
-
           {filteredHotels.length > 0 ? (
             filteredHotels.map((hotel) => (
               <div key={hotel.id} className="card mb-4 p-3 shadow-sm">
@@ -113,15 +113,13 @@ const Gallery = () => {
                         style={{ width: "80%" }}
                       />
                     </Link>
-
                     <div
                       className="d-flex flex-wrap rounded"
                       style={{ width: "80%" }}
                     >
                       {hotel.gallery.slice(0, 10).map((image, index) => (
-                        <Link to={`/details/${hotel.id}`}>
+                        <Link to={`/details/${hotel.id}`} key={index}>
                           <img
-                            key={index}
                             src={image}
                             className="m-class"
                             width="60"
@@ -136,8 +134,7 @@ const Gallery = () => {
                     <div className="card-body">
                       <Link
                         to={`/details/${hotel.id}`}
-                        href="#"
-                        className=" nav-class navbar-brand  fs-5 card-title fw-bold "
+                        className="nav-class navbar-brand fs-5 card-title fw-bold"
                       >
                         {hotel.name}
                         <br />
@@ -155,15 +152,14 @@ const Gallery = () => {
                           </Link>
                         </span>
                       </p>
-
                       <div className="fs-class fw-bold">
-                        <span className=" text-dark p-1 border border-muted me-1">
+                        <span className="text-dark p-1 border border-muted me-1">
                           Free Wi-Fi
                         </span>
-                        <span className=" text-dark p-1 border border-muted me-1">
+                        <span className="text-dark p-1 border border-muted me-1">
                           Car park
                         </span>
-                        <span className=" text-dark p-1 border border-muted me-1">
+                        <span className="text-dark p-1 border border-muted me-1">
                           Front desk (24-hour)
                         </span>
                         <span className="text-dark p-1 border border-muted">
@@ -173,7 +169,7 @@ const Gallery = () => {
                       <p className="text-muted mt-3">{hotel.discription}</p>
                       <p className="fw-bold ">
                         Available dates:
-                        <span className=" ms-2 fw-normal">
+                        <span className="ms-2 fw-normal">
                           {hotel.availableDates}
                         </span>
                       </p>
@@ -181,13 +177,13 @@ const Gallery = () => {
                   </div>
                   <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">
                     <Text type={"p"} content={"very good"} />
-                    <span className="fs-5 mb-5">{hotel.rating}Reviews</span>
+                    <span className="fs-5 mb-5">{hotel.rating} Reviews</span>
                     <p className="text-danger fw-bold fs-4 mb-5">
                       {hotel.price}
                     </p>
                     <Link
-                      className="btn btn-primary btn-lg hover-bg-primary mt-5 "
-                      to={`/details/${hotel.id}`}
+                      className="btn btn-primary btn-lg hover-bg-primary mt-5"
+                      to={"/Booknow"}
                     >
                       Check availability
                     </Link>

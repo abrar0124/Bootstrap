@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import hotelsData from "../components/Hotels"; //  Hotels ka data import karna na bhoolain
+import hotelsData from "../components/Hotels"; // Hotels ka data import karna na bhoolain
 
 const initialState = {
   hotels: hotelsData, // Your hotel data
@@ -8,7 +8,7 @@ const initialState = {
   selectedPrice: null,
   selectedDate: null,
   sortBy: null,
-  // New state for date filter
+  isAscending: true, // Sorting order ko Redux mein rakhein
 };
 
 const hotelSlice = createSlice({
@@ -28,11 +28,13 @@ const hotelSlice = createSlice({
       state.selectedPrice = action.payload;
     },
     setSelectedDate: (state, action) => {
-      // New action
       state.selectedDate = action.payload;
     },
     setSortBy: (state, action) => {
       state.sortBy = action.payload;
+    },
+    toggleSortOrder: (state) => {
+      state.isAscending = !state.isAscending; // Sorting order toggle karein
     },
   },
 });
@@ -43,5 +45,7 @@ export const {
   setPriceFilter,
   setSelectedDate,
   setSortBy,
+  toggleSortOrder, // New action
 } = hotelSlice.actions;
+
 export default hotelSlice.reducer;
