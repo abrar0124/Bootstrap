@@ -66,7 +66,6 @@ const Upcomingevent = () => {
       selectedDate == null || hotel.availableDates == selectedDate;
     return matchesSearch && matchesStars && matchesPrice && matchesDate;
   });
-
   if (sortBy === "price_lowest") {
     filteredHotels.sort((a, b) =>
       isAscending ? a.price - b.price : b.price - a.price
