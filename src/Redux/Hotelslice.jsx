@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import hotelsData from "../components/Hotels"; // Hotels ka data import karna na bhoolain
+import ProductsData from "../components/ProductsData";
+import hotelsData from "../components/Hotels";
 
 const initialState = {
-  hotels: hotelsData, // Your hotel data
+  hotels: hotelsData, // Hotels list
+  products: ProductsData, // Products list
   searchQuery: "",
   selectedStars: [],
   selectedPrice: null,
   selectedDate: null,
   sortBy: null,
-  isAscending: true, // Sorting order ko Redux mein rakhein
+  isAscending: true,
+  selectedProduct: null, // Jo product select hoga usko yahan store karenge
 };
-
 const hotelSlice = createSlice({
   name: "hotels",
   initialState,
@@ -34,7 +36,10 @@ const hotelSlice = createSlice({
       state.sortBy = action.payload;
     },
     toggleSortOrder: (state) => {
-      state.isAscending = !state.isAscending; // Sorting order toggle karein
+      state.isAscending = !state.isAscending;
+    },
+    setSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
     },
   },
 });
@@ -45,7 +50,8 @@ export const {
   setPriceFilter,
   setSelectedDate,
   setSortBy,
-  toggleSortOrder, // New action
+  toggleSortOrder,
+  setSelectedProduct,
 } = hotelSlice.actions;
 
 export default hotelSlice.reducer;

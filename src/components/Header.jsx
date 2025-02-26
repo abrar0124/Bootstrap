@@ -31,8 +31,12 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link active fs-5" aria-current="page">
-                Link
+              <Link
+                to="/Homepage"
+                className="nav-link active fs-5"
+                aria-current="page"
+              >
+                Homepage
               </Link>
             </li>
           </ul>

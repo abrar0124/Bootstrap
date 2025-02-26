@@ -8,11 +8,9 @@ const Details = () => {
   const { id } = useParams();
   const hotel = hotels.find((h) => h.id == id);
   console.log("show id", id);
-
   if (!hotel) {
     return <h2 className="text-center mt-5">Hotel not found!</h2>;
   }
-
   return (
     <>
       <Header />

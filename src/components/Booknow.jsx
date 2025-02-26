@@ -79,7 +79,7 @@ const HotelBookingPage = () => {
                 <p>Select your preference(s). Subject to availability.</p>
                 <form className="bg-color p-3">
                   <p className="fw-bold">Which type of room would you prefer</p>
-                  <div className="d-flex gap-4">
+                  <div className="d-flex flex-wrap gap-4">
                     <div className="form-check">
                       <input
                         type="radio"
@@ -104,7 +104,7 @@ const HotelBookingPage = () => {
                     </div>
                   </div>
                   <p className="fw-bold">Which bed setup would you prefer</p>
-                  <div className="d-flex gap-4 mt-2">
+                  <div className="d-flex flex-wrap gap-4 mt-2">
                     <div className="form-check">
                       <input
                         type="radio"
@@ -133,9 +133,27 @@ const HotelBookingPage = () => {
                   Show additional preference
                 </p>
               </div>
+              <p className="mt-2 text-end text-danger fw-bold">
+                Hurry Our last room for your dates at this place
+              </p>
             </div>
+
             {/* Right Side - Booking Summary */}
             <div className="col-md-4">
+              <div className="d-flex rounded p-1 gap-5 border mb-1 justify-content-center">
+                <div>
+                  <p className="fw-bold">Thu, Mar 6</p>
+                  <p className="text-muted ">03:00 pm</p>
+                </div>
+                <div>
+                  <p className="fw-bold">Sun , Mar 30</p>
+                  <p className="text-muted">10:00 am</p>
+                </div>
+                <div>
+                  <p className="fw-bold">24</p>
+                  <p className="text-muted">nights</p>
+                </div>
+              </div>
               <div className="card p-3 shadow-sm border rounded-3">
                 <h6 className="fw-bold">
                   Britannia International Hotel <br /> Canary Wharf
@@ -160,12 +178,12 @@ const HotelBookingPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="shadow p-2 text-center  danger">
+              <div className=" p-2 text-center  danger">
                 <p className=" fs text-danger fw-bold">
                   Hurry! last room for your dates at this place
                 </p>
               </div>
-              <div className="shadow p-2 text-center  danger">
+              <div className=" p-2 text-center  danger">
                 <p className=" fs text-danger ">
                   It,s only <span className="text-danger fw-bold">10</span> days
                   untilss your check{" "}
@@ -174,7 +192,7 @@ const HotelBookingPage = () => {
                   </span>
                 </p>
               </div>
-              <div className="shadow rounded mt-2">
+              <div className=" rounded mt-2">
                 <div className="bgs rounded">
                   <p>
                     {" "}
@@ -198,7 +216,8 @@ const HotelBookingPage = () => {
             </div>
           </div>
         </div>
-        <div className="max-class shadow rounded">
+
+        <div className="max-class shadow border rounded">
           <button className=" text btn btn-primary btn-lg  mt-3">
             NEXT: FINAL STEP
           </button>
