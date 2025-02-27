@@ -68,7 +68,7 @@ const Home = () => {
               />
               <input
                 type="date"
-                className="form-control m-2 border-0"
+                className="form-control m-2 "
                 value={selectedDate}
                 onChange={(e) => dispatch(setSelectedDate(e.target.value))}
               />
