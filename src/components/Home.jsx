@@ -20,6 +20,7 @@ import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
 import { setSearchQuery, setSelectedDate } from "../Redux/Hotelslice";
 import { useDispatch, useSelector } from "react-redux";
+import "./customscss.scss";
 const Home = () => {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.hotels.searchQuery);
@@ -40,42 +41,39 @@ const Home = () => {
             Search to compare prices and discover great deals with free
             cancellation
           </p>
-
           {/* Search Box */}
-          <div className="bg-light  p-2 d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <div className="bg-light p-2 d-flex flex-wrap align-items-center justify-content-between gap-2">
             {/* Location Input */}
             <div className="input-group " style={{ flex: "1 1 250px" }}>
               <input
-                className="form-control me-2"
+                className="form-control fs-4 me-2 p-3"
                 type="search"
-                placeholder="Search hotels..."
+                placeholder="Londons"
                 value={searchQuery}
                 onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               />
             </div>
-
             <div
-              className="btn  btn-lg btn-white d-flex align-items-center "
+              className="btn pd btn-lg btn-white d-flex align-items-center  border-primary"
               style={{
                 flex: 1,
               }}
             >
               <input
                 type="date"
-                className="form-control"
+                className="form-control p-3"
                 value={selectedDate}
                 onChange={(e) => dispatch(setSelectedDate(e.target.value))}
               />
               <input
                 type="date"
-                className="form-control m-2 "
+                className="form-control m-2 p-3"
                 value={selectedDate}
                 onChange={(e) => dispatch(setSelectedDate(e.target.value))}
               />
             </div>
-
             <select
-              className=" p-3 btn  d-flex bg-white  m-2 border"
+              className=" p-4 btn  d-flex bg-white  m-2 border"
               style={{
                 flex: "1 1 180px",
                 border: "1px solid #ddd",
@@ -85,10 +83,9 @@ const Home = () => {
               <option>1 adult, 1 room</option>
               <option>3 adults, 2 rooms</option>
             </select>
-
             {/* Search Button */}
             <button
-              className="btn btn-primary"
+              className="btn btn-primary p-3 fs-4"
               style={{ borderRadius: "8px", padding: "10px 20px" }}
             >
               Search

@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import Header from "./Header";
 
 function ProductDetail() {
   const selectedProductName = useSelector(
@@ -13,6 +14,7 @@ function ProductDetail() {
   }
   return (
     <>
+      <Header />
       <div className="container c">
         <h2 className="text-center">{selectedProductName} Details</h2>
         <div className="row justify-content-center mt-5">
