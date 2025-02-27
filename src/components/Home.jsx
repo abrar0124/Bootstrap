@@ -59,18 +59,20 @@ const Home = () => {
                 flex: 1,
               }}
             >
-              <input
-                type="date"
-                className="form-control p-3"
-                value={selectedDate}
-                onChange={(e) => dispatch(setSelectedDate(e.target.value))}
-              />
-              <input
-                type="date"
-                className="form-control m-2 p-3"
-                value={selectedDate}
-                onChange={(e) => dispatch(setSelectedDate(e.target.value))}
-              />
+              <div className="input-group" style={{ width: "400px" }}>
+                <input
+                  type="date"
+                  className="form-control p-4 "
+                  value={selectedDate}
+                  onChange={(e) => dispatch(setSelectedDate(e.target.value))}
+                />
+                <input
+                  type="date"
+                  className="form-control p-3"
+                  value={selectedDate}
+                  onChange={(e) => dispatch(setSelectedDate(e.target.value))}
+                />
+              </div>
             </div>
             <select
               className=" p-4 btn  d-flex bg-white  m-2 border"

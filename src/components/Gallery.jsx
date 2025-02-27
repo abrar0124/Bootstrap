@@ -177,12 +177,14 @@ const Gallery = () => {
                   </div>
                   <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">
                     <Text type={"p"} content={"very good"} />
-                    <span className="fs-5 mb-5">{hotel.rating} Reviews</span>
-                    <p className="text-danger fw-bold fs-4 mb-5">
-                      {hotel.price}
+                    <span className=" text-muted fs-5 mb-5">
+                      {hotel.rating} Reviews
+                    </span>
+                    <p className="text-danger fw-bold fs-4 ">
+                      PKR {hotel.price}
                     </p>
                     <Link
-                      className="btn btn-primary btn-lg hover-bg-primary mt-5"
+                      className=" b btn btn-primary btn-lg hover-bg-primary "
                       to={"/Booknow"}
                     >
                       Check availability
