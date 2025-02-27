@@ -8,7 +8,8 @@ const HotelBookingPage = () => {
       <Header />
       <div className="p-class">
         {/* Progress Bar */}
-        <div className="d-flex justify-content-center gap-5  pb-2">
+        <div className="d-flex justify-content-center  gap-5  pb-2">
+          <img className="ago" style={{ width: "5%" }} src="/Images/ago.png" />
           <span className="text-primary">Customer Information</span>
           <span>Payment Information</span>
           <span>Booking is Confirmed!</span>
@@ -30,7 +31,7 @@ const HotelBookingPage = () => {
           <div className=" row mt-4">
             {/* Left Side - Form */}
             <div className="col-md-7">
-              <div className="card p-4 shadow-sm border rounded-3">
+              <div className="card p-4 border rounded-3">
                 <h5 className="fw-bold">Who's the lead guest?</h5>
                 <form>
                   <div className="mb-3">
@@ -154,26 +155,50 @@ const HotelBookingPage = () => {
                   <p className="text-muted">nights</p>
                 </div>
               </div>
-              <div className="card p-3 shadow-sm border rounded-3">
-                <h6 className="fw-bold">
-                  Britannia International Hotel <br /> Canary Wharf
-                </h6>
-                <p>⭐⭐⭐⭐</p>
-                <p className="text-primary fw-bold ">
-                  6.9 Good{" "}
-                  <span className="text-muted fw-normal">(2133 reviews)</span>
-                </p>
-                <p className="fs">163 Marsh Wall, Canary Wharf, London,...</p>
-                <p className=" fs text-primary fw-bold ">What,s Nearby</p>
-                <div className="bg-color p-3 rounded">
-                  <p className=" fs fw-bold">1 x Standard Double Room</p>
-                  <p className="fs">20m² | Max: 2 adults</p>
-                  <p className=" fs text-success fw-bold">
+              <div className="card p-3 ">
+                <div className="d-flex align-items-center">
+                  <div>
+                    <img
+                      className="rounded"
+                      src="/Images/italy.jpeg"
+                      alt=""
+                      style={{ width: "85%", height: "250px" }}
+                    />
+                  </div>
+                  <div>
+                    <h6 className="fw-bold fsize">
+                      Britannia International Hotel Canary Wharf
+                    </h6>
+                    <p className="ds">⭐⭐⭐⭐</p>
+                    <p className=" ds text-primary fw-bold ">
+                      6.9 Good{" "}
+                      <span className=" ds text-muted fw-normal">
+                        (2133 reviews)
+                      </span>
+                    </p>
+                    <p className="ds">
+                      163 Marsh Wall, Canary Wharf, London,...
+                    </p>
+                    <p className="ds text-primary fw-bold ">What,s Nearby</p>
+                  </div>
+                </div>
+                <div className="bg-color p-2 mt-2 rounded">
+                  <div className="row  align-items-center mt-3">
+                    <div className="col-md-6">
+                      <img className="w-75 rounded" src="/Images/newbed.jpeg" />
+                    </div>
+
+                    <div className=" p-1 rounded col-md-6">
+                      <p className=" fs fw-bold">1 x Standard Double Room</p>
+                      <p className="fs">20m² | Max: 2 adults</p>
+                    </div>
+                  </div>
+                  <p className=" ds text-success fw-bold">
                     Luggage storage available
                   </p>
-                  <p className=" fs text-success fw-bold">24 hours check-in</p>
+                  <p className=" ds text-success fw-bold">24 hours check-in</p>
                   <p>1 double bed | 24-hour check-in</p>
-                  <p className=" fs text-danger fw-bold">
+                  <p className=" ds text-danger fw-bold">
                     Hurry! Last room for your dates at this place
                   </p>
                 </div>
@@ -216,8 +241,7 @@ const HotelBookingPage = () => {
             </div>
           </div>
         </div>
-
-        <div className="max-class shadow border rounded">
+        <div className="max-class border rounded">
           <button className=" text btn btn-primary btn-lg  mt-3">
             NEXT: FINAL STEP
           </button>
