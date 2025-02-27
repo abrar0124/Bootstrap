@@ -1,17 +1,11 @@
-import React from "react";
-
-function Child(Childprops) {
+function Child(childprops) {
   const handleClick = () => {
-    Childprops.Parentprops(
-      "Here send data from child component to parent through both component props"
-    );
+    childprops.parentprops("SABA MUKHTAR");
   };
-
   return (
-    <div>
-      <button onClick={handleClick}>Send Data</button>
-    </div>
+    <>
+      <button onClick={handleClick}>Send data</button>
+    </>
   );
 }
-
 export default Child;

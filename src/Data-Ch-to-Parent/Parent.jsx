@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Child from "./Child";
-
 function Parent() {
-  const [data, setData] = useState(null);
-
-  const handleData = (propsdata) => {
-    setData(propsdata);
+  const [data, setdata] = useState("");
+  const handle = (propsdata) => {
+    setdata(propsdata);
     console.log(propsdata);
   };
-
   return (
-    <div>
-      <Child Parentprops={handleData} />
+    <>
+      <Child parentprops={handle} />
       {data && <p>{data}</p>}
-    </div>
+    </>
   );
 }
-
 export default Parent;
