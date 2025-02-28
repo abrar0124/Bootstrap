@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import Header from "./Header";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 function ProductDetail() {
   const selectedProductName = useSelector(
@@ -9,36 +10,38 @@ function ProductDetail() {
   const filteredProducts = products.filter(
     (p) => p.name === selectedProductName
   );
+
   if (!selectedProductName) {
     return <h2 className="text-center mt-5">No product selected</h2>;
   }
+
   return (
     <>
       <Header />
-      <div className="container c">
+      <Container className="c" style={{ marginTop: "10%" }}>
         <h2 className="text-center">{selectedProductName} Details</h2>
-        <div className="row justify-content-center mt-5">
+        <Row className="justify-content-center mt-5">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-              <div key={product.id} className="col-md-4 mb-3">
-                <div className="card">
-                  <img
+              <Col key={product.id} md={4} className="mb-3 d-flex">
+                <Card className="h-100 shadow-sm">
+                  <Card.Img
+                    variant="top"
                     src={product.image}
-                    className="card-img-top"
                     alt={product.name}
                     style={{ height: "200px" }}
                   />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">{product.name}</h5>
-                  </div>
-                </div>
-              </div>
+                  <Card.Body className="text-center">
+                    <Card.Title>{product.name}</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
             ))
           ) : (
             <p>No products found for {selectedProductName}</p>
           )}
-        </div>
-      </div>
+        </Row>
+      </Container>
     </>
   );
 }
