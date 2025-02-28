@@ -2,6 +2,7 @@ import React from "react";
 import "./customscss.scss";
 import Text from "./Text";
 import { useSelector } from "react-redux";
+import { Card, CardBody, Col, Container, Row } from "react-bootstrap";
 
 const hotelsData = [
   {
@@ -61,41 +62,44 @@ const Reviews = () => {
   }
   return (
     <>
-      <div className="container border-top">
-        <Text type="h2" content="Real Reviews  for hotels" />
-
-        <div className="custom-text">
-          <div className="container mt-5 text-center ">
-            <div className="d-flex justify-content-center align-items-center">
-              <div className="row w-75">
-                {filteredHotels.map((hotel, index) => (
-                  <div className="col-md-4 " key={index}>
-                    <div className="card h-100 border  hover-shadow">
-                      <div className=" hover-shadow  card-body">
-                        <h5 className="text-primary">{hotel.name}</h5>
-                        <p className="mb-1">
-                          {hotel.review} <br />
-                          <small className="text-muted">
-                            Based on {hotel.reviewsCount} reviews
-                          </small>
-                        </p>
-                        <p>{hotel.Star}</p>
-                        <p className="mt-2">{hotel.description}</p>
-                        <p className="text-muted">
-                          <small>{hotel.reviewer}</small>
-                        </p>
-                        <p className="text-danger fw-bold fs-4">
-                          {hotel.price}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <Container className=" border-top">
+        <Text type={"h2"} content={"Four star hotels in London"} />
+        <div className="d-flex justify-content-center">
+          <Row className=" w-75">
+            {filteredHotels.map((hotel, index) => (
+              <Col md={4} key={index}>
+                <Card className="  border h-100 hover-shadow">
+                  <CardBody>
+                    <h5 className="text-primary">{hotel.name}</h5>
+                    <p className="mb-1">
+                      {hotel.review} <br />
+                      <small className="text-muted">
+                        Based on {hotel.reviewsCount} reviews
+                      </small>
+                    </p>
+                    <p>{hotel.Star}</p>
+                    <p className="mt-2">{hotel.description}</p>
+                    <p className="text-muted">
+                      <small>{hotel.reviewer}</small>
+                    </p>
+                    <p className="fw-bold ">
+                      Available dates:
+                      <span className=" ms-2 fw-normal">
+                        {hotel.availableDates}
+                      </span>
+                    </p>
+                    <p className="text-danger fw-bold fs-4">{hotel.price}</p>
+                  </CardBody>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </div>
-      </div>
+
+        {filteredHotels.length === 0 && (
+          <p className="text-center">No hotels found.</p>
+        )}
+      </Container>
     </>
   );
 };

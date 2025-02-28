@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Text from "./Text";
+import { Card, CardBody, Col, Container, Row } from "react-bootstrap";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
@@ -72,51 +73,50 @@ const Accomos = () => {
   }
 
   return (
-    <div className="container border-top">
+    <Container className=" border-top">
       <Text type={"h2"} content={"London hotels & accommodations"} />
-      <div className="row">
-        {/* Hotel List */}
-        <div className="d-flex justify-content-center">
-          <div className="row w-75">
-            {filteredHotels.map((hotel, index) => (
-              <div className="col-md-4" key={index}>
-                <div className="card h-100 hover-shadow">
-                  <img
-                    src={hotel.image}
-                    className="card-img-top"
-                    alt={hotel.name}
-                  />
-                  <div className="card-body">
-                    <h5 className="text-primary">{hotel.name}</h5>
-                    <p className="mb-1">
-                      {hotel.review} <br />
-                      <small className="text-muted">
-                        Based on {hotel.reviewsCount} reviews
-                      </small>
-                    </p>
-                    <p>{hotel.Star}</p>
-                    <p className="mt-2">{hotel.description}</p>
-                    <p className="text-muted">
-                      <small>{hotel.reviewer}</small>
-                    </p>
-                    <p className="fw-bold ">
-                      Available dates:
-                      <span className=" ms-2 fw-normal">
-                        {hotel.availableDates}
-                      </span>
-                    </p>
-                    <p className="text-danger fw-bold fs-4">{hotel.price}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="d-flex justify-content-center">
+        <Row className=" w-75">
+          {filteredHotels.map((hotel, index) => (
+            <Col md={4} key={index}>
+              <Card className=" h-100 hover-shadow">
+                <Card.Img
+                  src={hotel.image}
+                  className="card-img-top"
+                  alt={hotel.name}
+                  style={{ height: "200px" }}
+                />
+                <CardBody>
+                  <h5 className="text-primary">{hotel.name}</h5>
+                  <p className="mb-1">
+                    {hotel.review} <br />
+                    <small className="text-muted">
+                      Based on {hotel.reviewsCount} reviews
+                    </small>
+                  </p>
+                  <p>{hotel.Star}</p>
+                  <p className="mt-2">{hotel.description}</p>
+                  <p className="text-muted">
+                    <small>{hotel.reviewer}</small>
+                  </p>
+                  <p className="fw-bold ">
+                    Available dates:
+                    <span className=" ms-2 fw-normal">
+                      {hotel.availableDates}
+                    </span>
+                  </p>
+                  <p className="text-danger fw-bold fs-4">{hotel.price}</p>
+                </CardBody>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
+
       {filteredHotels.length === 0 && (
         <p className="text-center">No hotels found.</p>
       )}
-    </div>
+    </Container>
   );
 };
 

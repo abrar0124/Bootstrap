@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "./Text";
+import { Container, Row, Col } from "react-bootstrap";
 
 const hotelsData = [
   { name: "Chelsea", count: 2689 },
@@ -35,20 +36,20 @@ const Newkingdom = () => {
         type={"h1"}
         content={"Other popular destinations in United Kingdom"}
       />
-      <div className="container mt-4">
-        <div className="row g-3">
+      <Container>
+        <Row className=" g-3">
           {hotelsData.map((hotel, index) => (
-            <div key={index} className="col-md-4 ">
+            <Col md={4}>
               <p>
                 <a href="#" className="text-primary text-decoration-none">
                   {hotel.name}
                 </a>{" "}
                 - {hotel.count} hotels
               </p>
-            </div>
+            </Col>
           ))}
-        </div>
-      </div>
+        </Row>
+      </Container>
     </>
   );
 };

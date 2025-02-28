@@ -5,11 +5,12 @@ import Textbootstrap2 from "./Textbootstrap2";
 import Textbootstrap3 from "./Textbootstrap3";
 import Textbootstrap4 from "./Textbootstrap4";
 import Text from "./Text";
+import { Container } from "react-bootstrap";
 
 const Textbootstrap = () => {
   return (
     <>
-      <div className="container mt-4">
+      <Container className=" mt-4">
         <Text type={"h4"} content={"More about London"} />
         <div className="my-4">
           <Text
@@ -38,7 +39,7 @@ const Textbootstrap = () => {
             }
           />
         </div>
-      </div>
+      </Container>
       <Textbootstrap1 />
       <Textbootstrap2 />
       <Textbootstrap3 />

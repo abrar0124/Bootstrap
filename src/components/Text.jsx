@@ -18,7 +18,7 @@ function Text({ type, content }) {
           {content}
         </a>
       ) : (
-        <p className="text-muted">{content}</p>
+        <p className="text-white">{content}</p>
       )}
     </>
   );

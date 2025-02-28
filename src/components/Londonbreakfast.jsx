@@ -2,6 +2,7 @@ import React from "react";
 import "./customscss.scss";
 import Text from "./Text";
 import { useSelector } from "react-redux";
+import { Card, CardBody, Col, Container, Row } from "react-bootstrap";
 
 const hotelsData = [
   {
@@ -73,22 +74,20 @@ const Londonbreakfast = () => {
   }
   return (
     <>
-      <div className="container border-top">
-        <Text type={"h2"} content={"Kuala Lumpur hotels with breakfast"} />
-        {/* Hotel List */}
-        <div className=" d-flex justify-content-center">
-          <div className="row w-75">
-            {/* Restrict width for better centering */}
+      <Container className=" border-top">
+        <Text type={"h2"} content={"Kaula Lumpur hotels in London"} />
+        <div className="d-flex justify-content-center">
+          <Row className=" w-75">
             {filteredHotels.map((hotel, index) => (
-              <div className="col-md-4" key={index}>
-                <div className="card h-100 hover-shadow">
-                  <img
+              <Col md={4} key={index}>
+                <Card className=" h-100 hover-shadow">
+                  <Card.Img
                     src={hotel.image}
                     className="card-img-top"
                     alt={hotel.name}
                     style={{ height: "200px" }}
                   />
-                  <div className="card-body">
+                  <CardBody>
                     <h5 className="text-primary">{hotel.name}</h5>
                     <p className="mb-1">
                       {hotel.review} <br />
@@ -99,7 +98,7 @@ const Londonbreakfast = () => {
                     <p>{hotel.Star}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
-                      <small>{hotel.reviewer}Reviews</small>
+                      <small>{hotel.reviewer}</small>
                     </p>
                     <p className="fw-bold ">
                       Available dates:
@@ -108,16 +107,17 @@ const Londonbreakfast = () => {
                       </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
-                  </div>
-                </div>
-              </div>
+                  </CardBody>
+                </Card>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
+
         {filteredHotels.length === 0 && (
           <p className="text-center">No hotels found.</p>
         )}
-      </div>
+      </Container>
     </>
   );
 };

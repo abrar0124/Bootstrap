@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./customscss.scss";
 import Text from "./Text";
+import { Col, Container, Row } from "react-bootstrap";
 
 const hotels = [
   [
@@ -56,20 +57,20 @@ const hotels = [
 
 const Bootstrapfooter2 = () => {
   return (
-    <div className="container mt-4">
+    <Container className=" mt-4">
       <Text type={"h2"} content={"Popular London Hotels"} />
-      <div className="row">
+      <Row>
         {hotels.map((column, index) => (
-          <div className="col-md-3" key={index}>
+          <Col md={3} key={index}>
             <ul className="list-unstyled">
               {column.map((hotel) => (
                 <p className="custom-color">{hotel}</p>
               ))}
             </ul>
-          </div>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 

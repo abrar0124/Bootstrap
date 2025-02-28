@@ -1,11 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Text from "./Text";
+import { Container } from "react-bootstrap";
 
 const Textbootstrap3 = () => {
   return (
     <>
-      <div className="container mt-4">
+      <Container className=" mt-4">
         <div className="my-4">
           <Text
             type={"h3"}
@@ -33,7 +34,7 @@ const Textbootstrap3 = () => {
             }
           />
         </div>
-      </div>
+      </Container>
     </>
   );
 };

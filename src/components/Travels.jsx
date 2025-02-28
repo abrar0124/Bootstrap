@@ -1,5 +1,6 @@
 import React from "react";
 import "./customscss.scss";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import Text from "./Text";
 
 const hotelsData = [
@@ -30,43 +31,29 @@ const hotelsData = [
 const Travels = () => {
   return (
     <>
-      <div className="border-top">
-        <div className="container ">
-          <Text
-            type="h2"
-            content="Explore more travel vacation rentals
-"
-          />
-
-          <div className="custom-text">
-            <div className="container mt-5 text-center ">
-              <div className="d-flex justify-content-center align-items-center">
-                <div className="row w-75">
-                  {hotelsData.map((hotel, index) => (
-                    <div className="  col-md-3 " key={index}>
-                      <div className="card h-100  hover-shadow border">
-                        <img
-                          src={hotel.image}
-                          className="card-img-top"
-                          alt={hotel.name}
-                        />
-                        <div className=" hover-shadow  card-body">
-                          <p className=" fs-5 text-dark text-start">
-                            {hotel.name}
-                          </p>
-                          <p className=" text-muted text-start">
-                            {hotel.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="border-top py-4">
+        <Container>
+          <Text type="h2" content="Explore more travel vacation rentals" />
+          <Row className=" w-75 mt-5 mx-auto ">
+            {hotelsData.map((hotel, index) => (
+              <Col md={3} key={index} className="mb-4">
+                <Card className=" hover-shadow h-100  border">
+                  <Card.Img variant="top" src={hotel.image} alt={hotel.name} />
+                  <Card.Body>
+                    <Card.Title className="fs-5 text-dark text-start">
+                      {hotel.name}
+                    </Card.Title>
+                    <Card.Text className="text-muted text-start">
+                      {hotel.description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
       </div>
+      ;
     </>
   );
 };

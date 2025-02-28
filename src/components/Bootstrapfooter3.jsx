@@ -2,11 +2,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./customscss.scss";
 import Text from "./Text";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Bootstrapfooter3 = () => {
   return (
     <div className=" custom-footer footer  text-light text-center py-4">
-      <div className="container">
+      <Container>
         <Text
           type={"p"}
           content={
@@ -19,34 +20,34 @@ const Bootstrapfooter3 = () => {
           }
         />
 
-        <div className="row justify-content-center">
-          <div className="col-6 col-md-2">
+        <Row className=" justify-content-center">
+          <Col md={3}>
             <img
               src="/Images/agoda.jpeg"
               alt="Agoda"
               className="img-fluid"
               style={{ height: "60px" }}
             />
-          </div>
-          <div className="col-6 col-md-2">
+          </Col>
+          <Col md={3}>
             <Text type={"p"} content={"Priceline.com"} />
-          </div>
-          <div className="col-6 col-md-2">
+          </Col>
+          <Col md={3}>
             <img
               src="/Images/kayak.png"
               className="img-fluid "
               style={{ height: "20px" }}
             />
-          </div>
-          <div className="col-6 col-md-2">
+          </Col>
+          <Col md={3}>
             <Text type={"p"} content={"Booking.com"} />
-          </div>
-          <div className="col-6 col-md-2">
+          </Col>
+          <Col md={3}>
             <Text type={"p"} content={"Opentable"} />
-          </div>
-        </div>
+          </Col>
+        </Row>
         <Text type={"p"} content={"sg-pc-6g-geo-web-user-5956d79776-kvrpk"} />
-      </div>
+      </Container>
     </div>
   );
 };

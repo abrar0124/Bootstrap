@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import Text from "./Text";
 import React from "react";
+import { Card, CardBody, Col, Container, Row } from "react-bootstrap";
+
 const hotelsData = [
   {
     name: "Special Hotel Oval",
@@ -74,22 +76,20 @@ function Cheapplace() {
   }
   return (
     <>
-      <div className="container border-top">
-        <Text type={"h2"} content={"Cheap places to stay in London"} />
-        {/* Hotel List */}
-        <div className=" d-flex justify-content-center">
-          <div className="row w-75">
-            {" "}
-            {/* Restrict width for better centering */}
+      <Container className=" border-top">
+        <Text type={"h2"} content={"Cheap place to stay in London"} />
+        <div className="d-flex justify-content-center">
+          <Row className=" w-75">
             {filteredHotels.map((hotel, index) => (
-              <div className="col-md-4" key={index}>
-                <div className="card h-100 hover-shadow">
-                  <img
+              <Col md={4} key={index}>
+                <Card className=" h-100 hover-shadow">
+                  <Card.Img
                     src={hotel.image}
                     className="card-img-top"
                     alt={hotel.name}
+                    style={{ height: "200px" }}
                   />
-                  <div className="card-body">
+                  <CardBody>
                     <h5 className="text-primary">{hotel.name}</h5>
                     <p className="mb-1">
                       {hotel.review} <br />
@@ -109,16 +109,17 @@ function Cheapplace() {
                       </span>
                     </p>
                     <p className="text-danger fw-bold fs-4">{hotel.price}</p>
-                  </div>
-                </div>
-              </div>
+                  </CardBody>
+                </Card>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
+
         {filteredHotels.length === 0 && (
           <p className="text-center">No hotels found.</p>
         )}
-      </div>
+      </Container>
     </>
   );
 }

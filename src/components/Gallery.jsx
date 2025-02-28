@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
+import { Container, Row, Col, Stack } from "react-bootstrap";
 import Text from "./Text";
-import "./customscss.scss";
 import Filters from "./Galleryparts/Filters";
 import SortingButtons from "./Galleryparts/SortingButtons";
 import HotelCard from "./Galleryparts/HotelCard";
@@ -15,6 +15,7 @@ const Gallery = () => {
     sortBy,
     isAscending,
   } = useSelector((state) => state.hotels);
+
   let filteredHotels = hotels.filter((hotel) => {
     const lowerCaseName = hotel.name.toLowerCase();
     const lowerCaseQuery = searchQuery.toLowerCase();
@@ -37,24 +38,26 @@ const Gallery = () => {
   }
 
   return (
-    <div className="container mt-4">
-      <Text type="h2" content={"Hotels in London"} />
-      <div className="row">
-        <div className="col-md-3">
+    <Container className="mt-4">
+      <Text type="h2" content="Hotels in London" />
+      <Row>
+        {/* Sidebar - Filters */}
+        <Col md={3}>
           <Filters />
-        </div>
-        <div className="col-md-9">
+        </Col>
+        {/* Main Content - Sorting & Hotels */}
+        <Col md={9}>
           <SortingButtons />
           {filteredHotels.length > 0 ? (
             filteredHotels.map((hotel) => (
               <HotelCard key={hotel.id} hotel={hotel} />
             ))
           ) : (
-            <Text type={"p"} content={"No hotels found."} />
+            <Text type="p" content="No hotels found." />
           )}
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
