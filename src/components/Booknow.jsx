@@ -5,7 +5,6 @@ import Header from "./Header";
 import ProgressBar from "./Paymentdata/ProgressBar";
 import BookingForm from "./Paymentdata/BookingForm";
 import BookingSummary from "./Paymentdata/BookingSummary";
-
 const HotelBookingPage = () => {
   return (
     <>
@@ -28,7 +27,7 @@ const HotelBookingPage = () => {
         </div>
         <div className="max-class border rounded text-center">
           <button className="cc mt-2 btn btn-primary btn-lg">
-            NEXT: FINAL STEP
+            NEXT:FINAL STEP
           </button>
           <p className="textt text-muted mt-2">You won’t be charged yet.</p>
         </div>
@@ -36,5 +35,4 @@ const HotelBookingPage = () => {
     </>
   );
 };
-
 export default HotelBookingPage;
