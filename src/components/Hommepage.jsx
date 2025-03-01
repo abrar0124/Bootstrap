@@ -25,7 +25,6 @@ function Hommepage() {
             >
               <Card className="h-100 shadow-sm">
                 <Card.Img
-                  variant="top"
                   src={product.image}
                   alt={product.name}
                   style={{ height: "250px" }}
