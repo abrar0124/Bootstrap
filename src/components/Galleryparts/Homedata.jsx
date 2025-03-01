@@ -22,8 +22,6 @@ function Homedata() {
           Search to compare prices and discover great deals with free
           cancellation
         </p>
-
-        {/* Search Box - Everything in One Row */}
         <Row className="bg-light p-3 rounded d-flex align-items-center justify-content-between gap-2">
           {/* Location Input */}
           <Col md={3}>

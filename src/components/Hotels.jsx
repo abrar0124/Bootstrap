@@ -2,6 +2,7 @@ const hotelsData = [
   {
     id: 1,
     name: "Britannia International Hotel ",
+    Country: "Italy",
     place: "Canary Wharf",
     Star: "⭐⭐⭐⭐⭐",
     location: "Canary Wharf,",
@@ -26,6 +27,7 @@ const hotelsData = [
   {
     id: 2,
     name: "Mowbray Court Hotel",
+    Country: "France",
     Star: "⭐⭐⭐⭐",
     location: "St Katharine's",
     rating: 8.2,
@@ -50,6 +52,7 @@ const hotelsData = [
   {
     id: 3,
     name: "Modern & Minimalistic 2B Flat",
+    Country: "Germany",
     Star: "⭐⭐⭐",
     location: "St Katharine's, London",
     rating: 8.2,
@@ -74,6 +77,8 @@ const hotelsData = [
   {
     id: 4,
     name: "Modern One Bedroom Apartment",
+    Country: "Italy",
+
     place: "in Holloway Road",
     Star: "⭐⭐",
     location: "St Katharine's, London",
@@ -98,6 +103,7 @@ const hotelsData = [
   {
     id: 5,
     name: "Holiday Inn Express London",
+    Country: "France",
     place: "- Dartford",
     Star: "⭐",
     location: "St Katharine's, London",
@@ -123,6 +129,8 @@ const hotelsData = [
   {
     id: 6,
     name: "PubLove @ The White Ferry",
+    Country: "Italy",
+
     place: "Victoria",
     Star: "⭐⭐⭐⭐⭐",
     location: "St Katharine's",
@@ -147,6 +155,8 @@ const hotelsData = [
   {
     id: 7,
     name: "Queens Park Hotel",
+    Country: "Italy",
+
     Star: "⭐⭐⭐⭐",
     location: "St Katharine's,",
     rating: 8.2,
@@ -171,6 +181,8 @@ const hotelsData = [
   {
     id: 8,
     name: "Safestay London Elephant",
+    Country: "Italy",
+
     place: "and Castle",
     Star: "⭐⭐⭐",
     location: "St Katharine's, London",
@@ -194,6 +206,8 @@ const hotelsData = [
   {
     id: 9,
     name: "ibis budget London Heathrow ",
+    Country: "Italy",
+
     place: "Central",
     Star: "⭐⭐",
     location: "St Katharine's  London",
@@ -219,6 +233,8 @@ const hotelsData = [
   {
     id: 10,
     name: "PubLove @ The Brown Ferry",
+    Country: "Italy",
+
     place: " Victoria",
     Star: "⭐",
     location: "St Katharine's , London",
