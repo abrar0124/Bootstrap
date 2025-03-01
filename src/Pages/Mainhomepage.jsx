@@ -1,11 +1,11 @@
 import Header from "../components/Header";
-import Homepage from "../components/HomePage";
+import Home from "../components/Home";
 
 function Mainhomepage() {
   return (
     <>
       <Header />
-      <Homepage />
+      <Home />
     </>
   );
 }
