@@ -50,6 +50,7 @@ const HotelCard = ({ hotel }) => {
                 </Link>
               </span>
             </p>
+            <p className="fw-medium">{hotel.Country}</p>
             <p className="text-muted mt-3">{hotel.discription}</p>
             <p className="fw-bold ">
               Available dates:
