@@ -5,7 +5,6 @@ import Maindetailpage from "./Pages/Maindetailpage";
 import Homepage from "./Pages/Homepage";
 import Hotelbook from "./Pages/Hotelbook";
 import Detailpage from "./Pages/Detailpage";
-
 function App() {
   return (
     <>
