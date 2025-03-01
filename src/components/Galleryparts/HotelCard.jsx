@@ -58,7 +58,7 @@ const HotelCard = ({ hotel }) => {
           </div>
         </div>
         <div className="col-md-3 border-start d-flex flex-column justify-content-center align-items-end pe-3">
-          <Text type={"p"} content={"very good"} />
+          <p className="text-muted">Very good</p>{" "}
           <span className=" text-muted fs-5 mb-5">{hotel.rating} Reviews</span>
           <p className="text-danger fw-medium fs-4 ">PKR {hotel.price}</p>
           <Link

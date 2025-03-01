@@ -5,7 +5,7 @@ import Text from "./Text";
 
 const Bootstrapfooter3 = () => {
   return (
-    <div className=" custom-footer footer  text-light text-center py-4">
+    <div className=" custom-footer footer  text-white  text-center py-4">
       <div className="container">
         <Text
           type={"p"}
