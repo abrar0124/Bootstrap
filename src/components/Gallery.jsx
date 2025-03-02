@@ -272,6 +272,7 @@ const Gallery = () => {
   ];
 
   const {
+    hotels,
     searchQuery,
     selectedDate,
     selectedStars,
@@ -280,40 +281,18 @@ const Gallery = () => {
     isAscending,
     selectedCountry,
   } = useSelector((state) => state.hotels);
-  // const filteredHotels = hotelsData.filter((hotel) => {
-  //   const lowerCaseName = hotel.name.toLowerCase();
-  //   const lowerCaseQuery = searchQuery.toLowerCase();
-
-  //   const matchesSearch =
-  //     lowerCaseName.includes(lowerCaseQuery) ||
-  //     lowerCaseName.startsWith(lowerCaseQuery);
-
-  //   const matchesStars =
-  //     selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-
-  //   const matchesPrice = hotel.price >= selectedPrice;
-
-  //   const matchesDate =
-  //     selectedDate == null || hotel.availableDates == selectedDate;
-  //   return matchesSearch && matchesPrice && matchesDate && matchesStars;
-  // });
-
-  console.log("filteredHotels: ", filteredHotels);
-
-  // if (sortBy === "price_lowest") {
-  //   filteredHotels.sort((a, b) =>
-  //     isAscending ? a.price - b.price : b.price - a.price
-  //   );
-  // }
   const filteredHotels = () => {
     const assignvalue = hotelsData.filter((hotel) => {
-      hotel.Country === selectedCountry;
-      console.log(assignvalue);
+      const matchesCountry = hotel.Country === selectedCountry;
+      return matchesCountry;
     });
-    useEffect(() => {
-      filteredHotels();
-    });
+    console.log("Asign value:", assignvalue);
   };
+
+  console.log("selecteddata:", selectedCountry);
+  useEffect(() => {
+    filteredHotels();
+  }, []);
   return (
     <>
       <div className="container mt-4">
