@@ -4,8 +4,7 @@ import "./customscss.scss";
 import Filters from "./Galleryparts/Filters";
 import SortingButtons from "./Galleryparts/SortingButtons";
 import HotelCard from "./Galleryparts/HotelCard";
-import { useEffect, useState } from "react";
-import { setSelectedCountry } from "../Redux/Hotelslice";
+import { useEffect } from "react";
 
 const Gallery = () => {
   const hotelsData = [
