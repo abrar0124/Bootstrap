@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Text from "./Text";
-import "./customscss.scss";
 import Filters from "./Galleryparts/Filters";
 import SortingButtons from "./Galleryparts/SortingButtons";
 import HotelCard from "./Galleryparts/HotelCard";
-import { useEffect } from "react";
 
 const Gallery = () => {
   const hotelsData = [
@@ -270,49 +269,40 @@ const Gallery = () => {
     },
   ];
 
-  const {
-    hotels,
-    searchQuery,
-    selectedDate,
-    selectedStars,
-    selectedPrice,
-    sortBy,
-    isAscending,
-    selectedCountry,
-  } = useSelector((state) => state.hotels);
-  const filteredHotels = () => {
-    const assignvalue = hotelsData.filter((hotel) => {
-      const matchesCountry = hotel.Country === selectedCountry;
-      return matchesCountry;
-    });
-    console.log("Asign value:", assignvalue);
-  };
+  const { selectedCountry } = useSelector((state) => state.hotels);
+  const [filteredHotels, setFilteredHotels] = useState([]);
 
-  console.log("selecteddata:", selectedCountry);
   useEffect(() => {
-    filteredHotels();
+    const assignValue = hotelsData.filter(
+      (hotel) => selectedCountry === null || hotel.Country === selectedCountry
+    );
+
+    setFilteredHotels(assignValue);
+
+    console.log("filter countries", assignValue);
+    console.log("selected country", selectedCountry);
   }, []);
+
   return (
-    <>
-      <div className="container mt-4">
-        <Text type="h2" content={"Hotels in London"} />
-        <div className="row">
-          <div className="col-md-3">
-            <Filters />
-          </div>
-          <div className="col-md-9">
-            <SortingButtons />
-            {filteredHotels.length > 0 ? (
-              filteredHotels.map((hotel) => (
-                <HotelCard key={hotel.id} hotel={hotel} />
-              ))
-            ) : (
-              <Text type="p" content={"No hotels found."} />
-            )}
-          </div>
+    <div className="container mt-4">
+      <Text type="h2" content={"Hotels in London"} />
+      <div className="row">
+        <div className="col-md-3">
+          <Filters />
+        </div>
+        <div className="col-md-9">
+          <SortingButtons />
+          {filteredHotels.length > 0 ? (
+            filteredHotels.map((hotel) => (
+              <HotelCard key={hotel.id} hotel={hotel} />
+            ))
+          ) : (
+            <Text type="p" content={"No hotels found."} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
+
 export default Gallery;
