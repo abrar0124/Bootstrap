@@ -6,7 +6,6 @@ import "./customscss.scss";
 function Hommepage() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.hotels.products);
-
   return (
     <div className="c">
       <h2 className="cv">Top destinations</h2>

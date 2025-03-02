@@ -46,3 +46,41 @@ const Home = () => {
 };
 
 export default Home;
+
+// const {
+//   hotels,
+//   searchQuery,
+//   selectedDate,
+//   selectedStars,
+//   selectedPrice,
+//   sortBy,
+//   isAscending,
+//   // selectedCountry,
+// } = useSelector((state) => state.hotels);
+
+// const {
+//   hotels,
+//   searchQuery,
+//   selectedDate,
+//   selectedStars,
+//   selectedPrice,
+//   sortBy,
+//   isAscending,
+//   selectedCountry,
+// } = useSelector((state) => state.hotels);
+
+// const [product, setProduct] = useState(null);
+
+// const filteredHotels = () => {
+//   // start
+//   hotelsData.filter((hotel) => {
+//     const matchesCountry = hotel.Country === selectedCountry;
+//     setProduct(matchesCountry);
+//     console.log(hotel.Country);
+//   });
+// };
+
+// console.log("selecteddata:", selectedCountry);
+// useEffect(() => {
+//   filteredHotels();
+// }, []);

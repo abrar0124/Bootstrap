@@ -12,7 +12,7 @@ const initialState = {
   sortBy: null,
   isAscending: true,
   selectedProduct: null,
-  selectedCountry: null, // ✅ Naya state field
+  selectedCountry: null,
 };
 
 const hotelSlice = createSlice({
