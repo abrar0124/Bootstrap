@@ -6,9 +6,7 @@ import SortingButtons from "./Galleryparts/SortingButtons";
 import HotelCard from "./Galleryparts/HotelCard";
 
 const Gallery = () => {
-  const string = "Saba";
   const {
-    hotels,
     searchQuery,
     selectedDate,
     selectedStars,
@@ -17,39 +15,6 @@ const Gallery = () => {
     isAscending,
     selectedCountry,
   } = useSelector((state) => state.hotels);
-
-  let filteredHotels = hotels.filter((hotel) => {
-    const lowerCaseName = hotel.name.toLowerCase();
-    const lowerCaseQuery = searchQuery.toLowerCase();
-
-    const matchesSearch =
-      lowerCaseName.includes(lowerCaseQuery) ||
-      lowerCaseName.startsWith(lowerCaseQuery);
-
-    const matchesStars =
-      selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = hotel.price >= selectedPrice;
-
-    const matchesDate =
-      selectedDate == null || hotel.availableDates == selectedDate;
-    const matchesCountry =
-      selectedCountry == null || hotel.Country === selectedCountry;
-    return (
-      matchesSearch &&
-      matchesStars &&
-      matchesPrice &&
-      matchesDate &&
-      matchesCountry
-    );
-  });
-
-  console.log("filteredHotels: ", filteredHotels);
-
-  if (sortBy === "price_lowest") {
-    filteredHotels.sort((a, b) =>
-      isAscending ? a.price - b.price : b.price - a.price
-    );
-  }
 
   return (
     <div className="container mt-4">
@@ -60,10 +25,8 @@ const Gallery = () => {
         </div>
         <div className="col-md-9">
           <SortingButtons />
-          {filteredHotels.length > 0 ? (
-            filteredHotels.map((hotel) => (
-              <HotelCard key={hotel.id} hotel={hotel} />
-            ))
+          {[] > 0 ? (
+            [1, 2, 3].map((hotel) => <HotelCard key={hotel.id} hotel={hotel} />)
           ) : (
             <Text type={"p"} content={"No hotels found."} />
           )}
