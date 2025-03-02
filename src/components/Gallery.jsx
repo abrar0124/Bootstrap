@@ -6,6 +6,7 @@ import SortingButtons from "./Galleryparts/SortingButtons";
 import HotelCard from "./Galleryparts/HotelCard";
 
 const Gallery = () => {
+  const string = "Saba";
   const {
     hotels,
     searchQuery,
@@ -49,10 +50,10 @@ const Gallery = () => {
       isAscending ? a.price - b.price : b.price - a.price
     );
   }
+
   return (
     <div className="container mt-4">
       <Text type="h2" content={"Hotels in London"} />
-      abrar
       <div className="row">
         <div className="col-md-3">
           <Filters />

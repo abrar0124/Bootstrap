@@ -19,7 +19,6 @@ import Bootstrapfooter from "./Bootstrapfooter1";
 import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
 import Homedata from "./Galleryparts/Homedata";
-
 const Home = () => {
   return (
     <>
