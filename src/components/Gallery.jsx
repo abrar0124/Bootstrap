@@ -11,7 +11,7 @@ const Gallery = () => {
       id: 1,
       name: "Britannia International Hotel ",
       Country: "italy",
-      place: "Canary Wharf",
+      // place: "Canary Wharf",
       Star: "⭐⭐⭐⭐⭐",
       location: "Canary Wharf,",
       rating: 6.9,
@@ -88,7 +88,7 @@ const Gallery = () => {
       name: "Modern One Bedroom Apartment",
       Country: "italy",
 
-      place: "in Holloway Road",
+      // place: "in Holloway Road",
       Star: "⭐⭐",
       location: "St Katharine's, London",
       rating: 8.2,
@@ -114,7 +114,7 @@ const Gallery = () => {
       name: "Holiday Inn Express London",
       Country: "france",
 
-      place: "- Dartford",
+      // place: "- Dartford",
       Star: "⭐",
       location: "St Katharine's, London",
       rating: 8.2,
@@ -141,7 +141,7 @@ const Gallery = () => {
       name: "PubLove @ The White Ferry",
       Country: "germany",
 
-      place: "Victoria",
+      // place: "Victoria",
       Star: "⭐⭐⭐⭐⭐",
       location: "St Katharine's",
       rating: 8.2,
@@ -166,7 +166,6 @@ const Gallery = () => {
       id: 7,
       name: "Queens Park Hotel",
       Country: "italy",
-
       Star: "⭐⭐⭐⭐",
       location: "St Katharine's,",
       rating: 8.2,
@@ -193,7 +192,7 @@ const Gallery = () => {
       name: "Safestay London Elephant",
       Country: "france",
 
-      place: "and Castle",
+      // place: "and Castle",
       Star: "⭐⭐⭐",
       location: "St Katharine's, London",
       rating: 8.2,
@@ -218,7 +217,7 @@ const Gallery = () => {
       name: "ibis budget London Heathrow ",
       Country: "germany",
 
-      place: "Central",
+      // place: "Central",
       Star: "⭐⭐",
       location: "St Katharine's  London",
       rating: 8.2,
@@ -244,8 +243,7 @@ const Gallery = () => {
       id: 10,
       name: "PubLove @ The Brown Ferry",
       Country: "italy",
-
-      place: " Victoria",
+      // place: " Victoria",
       Star: "⭐",
       location: "St Katharine's , London",
       rating: 8.2,
@@ -269,7 +267,15 @@ const Gallery = () => {
     },
   ];
 
-  const { selectedCountry } = useSelector((state) => state.hotels);
+  const {
+    searchQuery,
+    selectedStars,
+    selectedPrice,
+    selectedDate,
+    selectedCountry,
+    isAscending,
+    sortBy,
+  } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
 
   useEffect(() => {
@@ -278,30 +284,56 @@ const Gallery = () => {
     );
 
     setFilteredHotels(assignValue);
-
     console.log("filter countries", assignValue);
     console.log("selected country", selectedCountry);
   }, []);
 
+  useEffect(() => {
+    const assignValue = hotelsData.filter(
+      (hotel) =>
+        (searchQuery === "" ||
+          hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
+        (selectedStars.length === 0 ||
+          selectedStars.includes(hotel.Star.length)) &&
+        hotel.price >= selectedPrice &&
+        (selectedDate == null || hotel.availableDates === selectedDate)
+    );
+    if (sortBy === "price_lowest") {
+      assignValue.sort((a, b) =>
+        isAscending ? a.price - b.price : b.price - a.price
+      );
+    }
+    setFilteredHotels(assignValue);
+    console.log("Filtered Hotels:", assignValue);
+  }, [
+    searchQuery,
+    selectedStars,
+    selectedPrice,
+    selectedDate,
+    isAscending,
+    sortBy,
+  ]);
   return (
-    <div className="container mt-4">
-      <Text type="h2" content={"Hotels in London"} />
-      <div className="row">
-        <div className="col-md-3">
-          <Filters />
-        </div>
-        <div className="col-md-9">
-          <SortingButtons />
-          {filteredHotels.length > 0 ? (
-            filteredHotels.map((hotel) => (
-              <HotelCard key={hotel.id} hotel={hotel} />
-            ))
-          ) : (
-            <Text type="p" content={"No hotels found."} />
-          )}
+    <>
+      <div className="container mt-4">
+        <Text type="h2" content={"Hotels in London"} />
+        <div className="row">
+          <div className="col-md-3">
+            <Filters />
+          </div>
+          <div className="col-md-9">
+            <SortingButtons />
+            {filteredHotels.length > 0 ? (
+              filteredHotels.map((hotel) => (
+                <HotelCard key={hotel.id} hotel={hotel} />
+              ))
+            ) : (
+              <Text type="p" content={"No hotels found."} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
