@@ -288,8 +288,9 @@ const Gallery = () => {
     console.log("selected country", selectedCountry);
   }, []);
 
-  useEffect(() => {
-    const assignValue = hotelsData.filter(
+  // FilteredHotels
+  const filterHotels = () => {
+    let assignValue = hotelsData.filter(
       (hotel) =>
         (searchQuery === "" ||
           hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
@@ -303,8 +304,15 @@ const Gallery = () => {
         isAscending ? a.price - b.price : b.price - a.price
       );
     }
+
     setFilteredHotels(assignValue);
     console.log("Filtered Hotels:", assignValue);
+  };
+
+  useEffect(() => {
+    if (filteredHotels.length > 0) {
+      filterHotels();
+    }
   }, [
     searchQuery,
     selectedStars,
