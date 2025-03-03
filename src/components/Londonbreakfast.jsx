@@ -119,7 +119,6 @@ const Londonbreakfast = () => {
                     </p>
                     <p>{hotel.Star}</p>
                     <p className="fw-medium">{hotel.Country}</p>
-                    <p className="fw-medium">{hotel.Country}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}Reviews</small>
