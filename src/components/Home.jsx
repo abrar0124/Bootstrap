@@ -19,10 +19,12 @@ import Bootstrapfooter from "./Bootstrapfooter1";
 import Bootstrapfooter2 from "./Bootstrapfooter2";
 import Bootstrapfooter3 from "./Bootstrapfooter3";
 import Homedata from "./Galleryparts/Homedata";
+import Hommepage from "./Hommepage";
 const Home = () => {
   return (
     <>
       <Homedata />
+      <Hommepage />
       <Gallery />
       <Unitedkingdom />
       <London />
@@ -46,41 +48,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// const {
-//   hotels,
-//   searchQuery,
-//   selectedDate,
-//   selectedStars,
-//   selectedPrice,
-//   sortBy,
-//   isAscending,
-//   // selectedCountry,
-// } = useSelector((state) => state.hotels);
-
-// const {
-//   hotels,
-//   searchQuery,
-//   selectedDate,
-//   selectedStars,
-//   selectedPrice,
-//   sortBy,
-//   isAscending,
-//   selectedCountry,
-// } = useSelector((state) => state.hotels);
-
-// const [product, setProduct] = useState(null);
-
-// const filteredHotels = () => {
-//   // start
-//   hotelsData.filter((hotel) => {
-//     const matchesCountry = hotel.Country === selectedCountry;
-//     setProduct(matchesCountry);
-//     console.log(hotel.Country);
-//   });
-// };
-
-// console.log("selecteddata:", selectedCountry);
-// useEffect(() => {
-//   filteredHotels();
-// }, []);

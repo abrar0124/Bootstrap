@@ -2,10 +2,12 @@ import React from "react";
 import "./customscss.scss";
 import Text from "./Text";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
+    Country: "America",
     price: 43000,
     availableDates: "2025-03-16",
     Star: "⭐⭐⭐⭐⭐",
@@ -19,6 +21,7 @@ const hotelsData = [
   {
     price: 38000,
     name: "B’Shan Apartments",
+    Country: "Austria",
     availableDates: "2025-03-17",
     Star: "⭐⭐⭐",
     image: "/Images/popular2.webp",
@@ -31,6 +34,7 @@ const hotelsData = [
   {
     price: 45000,
     name: "Park Avenue Hyde Park",
+    Country: "Japan",
     availableDates: "2025-03-18",
     Star: "⭐⭐",
     image: "/Images/popular3.webp",
@@ -51,27 +55,43 @@ const Popularhotel = () => {
     selectedDate,
     sortBy,
     isAscending,
+    selectedCountry,
   } = useSelector((state) => state.hotels);
-  const filteredHotels = hotelsData.filter((hotel) => {
-    const lowerCaseName = hotel.name.toLowerCase();
-    const lowerCaseQuery = searchQuery.toLowerCase();
-    const matchesSearch =
-      lowerCaseName.includes(lowerCaseQuery) ||
-      lowerCaseName.startsWith(lowerCaseQuery);
-    const matchesStars =
-      selectedStars.length === 0 || selectedStars.includes(hotel.Star.length);
-    const matchesPrice = hotel.price >= selectedPrice;
-    const matchesDate =
-      selectedDate == null || hotel.availableDates == selectedDate;
-    return matchesSearch && matchesStars && matchesPrice && matchesDate;
-  });
+  const [filteredHotels, setFilteredHotels] = useState([]);
+  // FilteredHotels
 
-  if (sortBy === "price_lowest") {
-    filteredHotels.sort((a, b) =>
-      isAscending ? a.price - b.price : b.price - a.price
+  const filterHotels = () => {
+    let assignValue = hotelsData.filter(
+      (hotel) =>
+        ((searchQuery === "" ||
+          hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
+          (selectedStars.length === 0 ||
+            selectedStars.includes(hotel.Star.length)) &&
+          hotel.price >= selectedPrice &&
+          (selectedDate == null || hotel.availableDates === selectedDate) &&
+          selectedCountry === null) ||
+        hotel.Country === selectedCountry
     );
-    console.log(isAscending);
-  }
+    if (sortBy === "price_lowest") {
+      assignValue.sort((a, b) =>
+        isAscending ? a.price - b.price : b.price - a.price
+      );
+    }
+    setFilteredHotels(assignValue);
+    console.log("Filtered Hotels:", assignValue);
+  };
+
+  useEffect(() => {
+    filterHotels();
+  }, [
+    searchQuery,
+    selectedStars,
+    selectedPrice,
+    selectedDate,
+    isAscending,
+    sortBy,
+    selectedCountry,
+  ]);
   return (
     <>
       <div className="container border-top">
@@ -98,6 +118,8 @@ const Popularhotel = () => {
                       </small>
                     </p>
                     <p>{hotel.Star}</p>
+                    <p className="fw-medium">{hotel.Country}</p>
+                    <p className="fw-medium">{hotel.Country}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
                       <small>{hotel.reviewer}</small>

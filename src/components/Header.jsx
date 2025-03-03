@@ -30,15 +30,6 @@ function Header() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                to="/Homepage"
-                className="nav-link active fs-5"
-                aria-current="page"
-              >
-                Homepage
-              </Link>
-            </li>
           </ul>
           <form className="d-flex" role="search">
             <input

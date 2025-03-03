@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSelectedCountry } from "../Redux/Hotelslice"; // ✅ Import kiya
+import { setSelectedCountry } from "../Redux/Hotelslice";
 import "./customscss.scss";
 
 function Hommepage() {
@@ -17,10 +17,10 @@ function Hommepage() {
         {products.map((product) => (
           <div key={product.id} className="col-md-3">
             <Link
-              to="/Gallery"
+              to="/"
               onClick={() => {
                 dispatch(setSelectedCountry(product.Country));
-                console.log("Selected Country: ", product.Country); // ✅ Check Redux update
+                console.log("Selected Country:", product.Country); // ✅ Check Redux update
               }}
               className="text-decoration-none"
             >
