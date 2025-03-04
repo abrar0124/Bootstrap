@@ -4,7 +4,7 @@ const ProductsData = [
   { id: 3, Country: "Germany", image: "/Images/germany.jpeg" },
   { id: 4, Country: "America", image: "/Images/America.jpeg" },
   { id: 5, Country: "Japan", image: "/Images/Japan.jpeg" },
-  { id: 6, Country: "Austria", image: "/Images/Canada.jpeg" },
+  { id: 6, Country: "Austria", image: "/Images/Austeria.jpeg" },
 ];
 
 export default ProductsData;

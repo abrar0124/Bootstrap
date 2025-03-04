@@ -276,17 +276,6 @@ const Gallery = () => {
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
 
-  useEffect(() => {
-    const assignValue = hotelsData.filter(
-      (hotel) => selectedCountry === null || hotel.Country === selectedCountry
-    );
-
-    setFilteredHotels(assignValue);
-    console.log("filter countries", assignValue);
-    console.log("selected country", selectedCountry);
-  }, []);
-
-  // FilteredHotels
   const filterHotels = () => {
     let assignValue = hotelsData.filter(
       (hotel) =>
@@ -295,22 +284,21 @@ const Gallery = () => {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
-        (selectedDate == null || hotel.availableDates === selectedDate)
+        (selectedDate == null || hotel.availableDates === selectedDate) &&
+        (selectedCountry === null || hotel.Country === selectedCountry)
     );
     if (sortBy === "price_lowest") {
       assignValue.sort((a, b) =>
         isAscending ? a.price - b.price : b.price - a.price
       );
     }
-
     setFilteredHotels(assignValue);
     console.log("Filtered Hotels:", assignValue);
+    console.log(selectedCountry);
   };
 
   useEffect(() => {
-    if (filteredHotels.length > 0) {
-      filterHotels();
-    }
+    filterHotels();
   }, [
     searchQuery,
     selectedStars,
@@ -319,6 +307,9 @@ const Gallery = () => {
     isAscending,
     sortBy,
   ]);
+  useEffect(() => {
+    filterHotels();
+  }, []);
 
   return (
     <>

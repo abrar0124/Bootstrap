@@ -14,7 +14,15 @@ function FilteredCountry() {
   return (
     <>
       <Header />
-      <Home />
+      <Homedata />
+      <Gallery />
+      <Accomos />
+      <Cheapplace />
+      <Fourstar />
+      <Luxuryhotel />
+      <Upcomingevent />
+      <Popularhotel />
+      <Londonbreakfast />
     </>
   );
 }
