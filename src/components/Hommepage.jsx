@@ -17,7 +17,7 @@ function Hommepage() {
         {products.map((product) => (
           <div key={product.id} className="col-md-3">
             <Link
-              to="/Gallery"
+              to="/FilteredCountry"
               onClick={() => {
                 dispatch(setSelectedCountry(product.Country));
                 console.log("Selected Country: ", product.Country); // ✅ Check Redux update

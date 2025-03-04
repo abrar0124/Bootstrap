@@ -10,7 +10,7 @@ const Gallery = () => {
     {
       id: 1,
       name: "Britannia International Hotel ",
-      Country: "italy",
+      Country: "Italy",
       // place: "Canary Wharf",
       Star: "⭐⭐⭐⭐⭐",
       location: "Canary Wharf,",
@@ -35,7 +35,7 @@ const Gallery = () => {
     {
       id: 2,
       name: "Mowbray Court Hotel",
-      Country: "france",
+      Country: "France",
       Star: "⭐⭐⭐⭐",
       location: "St Katharine's",
       rating: 8.2,
@@ -60,8 +60,7 @@ const Gallery = () => {
     {
       id: 3,
       name: "Modern & Minimalistic 2B Flat",
-      Country: "germany",
-
+      Country: "Germany",
       Star: "⭐⭐⭐",
       location: "St Katharine's, London",
       rating: 8.2,
@@ -86,7 +85,7 @@ const Gallery = () => {
     {
       id: 4,
       name: "Modern One Bedroom Apartment",
-      Country: "italy",
+      Country: "America",
 
       // place: "in Holloway Road",
       Star: "⭐⭐",
@@ -112,8 +111,7 @@ const Gallery = () => {
     {
       id: 5,
       name: "Holiday Inn Express London",
-      Country: "france",
-
+      Country: "Austria",
       // place: "- Dartford",
       Star: "⭐",
       location: "St Katharine's, London",
@@ -139,7 +137,7 @@ const Gallery = () => {
     {
       id: 6,
       name: "PubLove @ The White Ferry",
-      Country: "germany",
+      Country: "Japan",
 
       // place: "Victoria",
       Star: "⭐⭐⭐⭐⭐",
@@ -165,7 +163,7 @@ const Gallery = () => {
     {
       id: 7,
       name: "Queens Park Hotel",
-      Country: "italy",
+      Country: "Italy",
       Star: "⭐⭐⭐⭐",
       location: "St Katharine's,",
       rating: 8.2,
@@ -190,7 +188,7 @@ const Gallery = () => {
     {
       id: 8,
       name: "Safestay London Elephant",
-      Country: "france",
+      Country: "America",
 
       // place: "and Castle",
       Star: "⭐⭐⭐",
@@ -215,7 +213,7 @@ const Gallery = () => {
     {
       id: 9,
       name: "ibis budget London Heathrow ",
-      Country: "germany",
+      Country: "Germany",
 
       // place: "Central",
       Star: "⭐⭐",
@@ -242,7 +240,7 @@ const Gallery = () => {
     {
       id: 10,
       name: "PubLove @ The Brown Ferry",
-      Country: "italy",
+      Country: "Austria",
       // place: " Victoria",
       Star: "⭐",
       location: "St Katharine's , London",
@@ -321,6 +319,7 @@ const Gallery = () => {
     isAscending,
     sortBy,
   ]);
+
   return (
     <>
       <div className="container mt-4">
