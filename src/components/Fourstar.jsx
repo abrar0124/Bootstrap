@@ -79,6 +79,8 @@ const Fourstar = () => {
     console.log(selectedCountry);
   };
 
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -89,9 +91,6 @@ const Fourstar = () => {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
 
   return (
     <>

@@ -77,7 +77,8 @@ function Cheapplace() {
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
   };
-
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -88,9 +89,7 @@ function Cheapplace() {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
+
   return (
     <>
       <div className="container border-top">

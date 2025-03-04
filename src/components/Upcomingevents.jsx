@@ -80,7 +80,8 @@ const Upcomingevent = () => {
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
   };
-
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -91,9 +92,6 @@ const Upcomingevent = () => {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
 
   return (
     <>

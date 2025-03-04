@@ -80,6 +80,8 @@ const Luxuryhotel = () => {
     console.log(selectedCountry);
   };
 
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -90,9 +92,7 @@ const Luxuryhotel = () => {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
+
   return (
     <>
       <div className="container border-top">

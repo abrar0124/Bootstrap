@@ -76,7 +76,8 @@ const Accomos = () => {
     console.log("Filtered Hotels:", assignValue);
     console.log(selectedCountry);
   };
-
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -87,9 +88,7 @@ const Accomos = () => {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
+
   return (
     <div className="container border-top">
       <Text type={"h2"} content={"London hotels & accommodations"} />

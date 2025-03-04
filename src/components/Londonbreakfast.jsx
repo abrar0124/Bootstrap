@@ -79,6 +79,8 @@ const Londonbreakfast = () => {
     console.log(selectedCountry);
   };
 
+  // all filters will be re-render but selectedcountry will be just
+  // render means first mount.
   useEffect(() => {
     filterHotels();
   }, [
@@ -89,9 +91,6 @@ const Londonbreakfast = () => {
     isAscending,
     sortBy,
   ]);
-  useEffect(() => {
-    filterHotels();
-  }, []);
 
   return (
     <>
