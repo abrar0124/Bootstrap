@@ -34,7 +34,7 @@ const hotelsData = [
   {
     price: 45000,
     name: "Park Avenue Hyde Park",
-    Country: "Italy",
+    Country: "Japan",
     availableDates: "2025-03-18",
     Star: "⭐⭐",
     image: "/Images/popular3.webp",

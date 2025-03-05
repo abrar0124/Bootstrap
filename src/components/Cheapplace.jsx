@@ -33,7 +33,7 @@ const hotelsData = [
   {
     name: "Cheap Avenue Hyde Park",
     availableDates: "2025-03-06",
-    Country: "Italy",
+    Country: "America",
     price: 17000,
     Star: "⭐",
     image: "/Images/cheap3.webp",

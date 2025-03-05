@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const hotelsData = [
   {
     name: "Upcoming Hotel Oval",
-    Country: "Italy",
+    Country: "Dubai",
     price: 31000,
     availableDates: "2025-03-13",
     Star: "⭐⭐⭐⭐⭐",

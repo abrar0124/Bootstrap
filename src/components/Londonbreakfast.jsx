@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
-    Country: "America",
+    Country: "Canada",
     price: 64000,
     Star: "⭐⭐⭐",
     availableDates: "2025-03-18",
@@ -32,7 +32,7 @@ const hotelsData = [
   },
   {
     name: "Park Avenue Hyde Park",
-    Country: "Italy",
+    Country: "Germany",
     price: 34000,
     availableDates: "2025-03-20",
     Star: "⭐⭐⭐⭐⭐",

@@ -15,7 +15,7 @@ const HotelCard = ({ hotel }) => {
             />
           </Link>
           <div className="d-flex flex-wrap rounded" style={{ width: "80%" }}>
-            {hotel.gallery.slice(0, 10).map((image, index) => (
+            {hotel.gallery.slice(0, 15).map((image, index) => (
               <Link to={`/details/${hotel.id}`} key={index}>
                 <img
                   src={image}

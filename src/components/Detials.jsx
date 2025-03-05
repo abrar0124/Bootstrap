@@ -14,7 +14,7 @@ const Details = () => {
   return (
     <>
       <Header />
-      <div className="container mt-4">
+      <div className="container" style={{ marginTop: "8%" }}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -33,12 +33,13 @@ const Details = () => {
                 London hotels
               </Link>
             </li>
-            <li className="breadcrumb-item active">{hotel.name}</li>
+            <li className="breadcrumb-item active fw-medium">
+              {hotel.Country}
+            </li>
           </ol>
         </nav>
 
         {/* Hotel Title & Location */}
-
         {/* Image Gallery Section */}
         <div className="row">
           {/* Main Image */}
@@ -73,7 +74,7 @@ const Details = () => {
                 className="border p-3"
                 style={{ width: "96%", marginLeft: "2%" }}
               >
-                <h2 className="fw-medium">{hotel.name} ⭐⭐⭐</h2>
+                <h2 className="fw-medium">{hotel.Country} ⭐⭐⭐</h2>
                 <p>{hotel.discription}</p>
               </div>
               <div
