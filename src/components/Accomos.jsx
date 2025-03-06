@@ -49,6 +49,8 @@ const Accomos = () => {
     searchQuery,
     selectedStars,
     selectedPrice,
+    minprice,
+    maxprice,
     selectedDate,
     selectedCountry,
     isAscending,
@@ -64,6 +66,8 @@ const Accomos = () => {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
@@ -81,6 +85,8 @@ const Accomos = () => {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,

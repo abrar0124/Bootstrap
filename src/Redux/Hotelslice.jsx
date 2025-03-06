@@ -13,6 +13,8 @@ const initialState = {
   isAscending: true,
   selectedProduct: null,
   selectedCountry: null,
+  minprice: null,
+  maxprice: null,
 };
 
 const hotelSlice = createSlice({
@@ -28,8 +30,17 @@ const hotelSlice = createSlice({
         ? (state.selectedStars = state.selectedStars.filter((s) => s !== star))
         : state.selectedStars.push(star);
     },
+    clearstarfilter: (state) => {
+      state.selectedStars = [];
+    },
     setPriceFilter: (state, action) => {
       state.selectedPrice = action.payload;
+    },
+    setMinprice: (state, action) => {
+      state.minprice = action.payload;
+    },
+    setMaxprice: (state, action) => {
+      state.maxprice = action.payload;
     },
     setSelectedDate: (state, action) => {
       state.selectedDate = action.payload;
@@ -52,7 +63,10 @@ const hotelSlice = createSlice({
 export const {
   setSearchQuery,
   toggleStarFilter,
+  clearstarfilter,
   setPriceFilter,
+  setMinprice,
+  setMaxprice,
   setSelectedDate,
   setSortBy,
   toggleSortOrder,

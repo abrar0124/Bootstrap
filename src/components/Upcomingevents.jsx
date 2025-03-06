@@ -50,6 +50,8 @@ const hotelsData = [
 ];
 const Upcomingevent = () => {
   const {
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
@@ -68,6 +70,8 @@ const Upcomingevent = () => {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
@@ -85,6 +89,8 @@ const Upcomingevent = () => {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,

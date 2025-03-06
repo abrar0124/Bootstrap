@@ -610,6 +610,8 @@ const Gallery = () => {
     searchQuery,
     selectedStars,
     selectedPrice,
+    minprice,
+    maxprice,
     selectedDate,
     selectedCountry,
     isAscending,
@@ -626,6 +628,8 @@ const Gallery = () => {
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
     if (sortBy === "price_lowest") {
@@ -642,6 +646,8 @@ const Gallery = () => {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,

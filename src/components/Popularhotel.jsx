@@ -8,7 +8,7 @@ const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
     Country: "America",
-    price: 43000,
+    price: 31000,
     availableDates: "2025-03-16",
     Star: "⭐⭐⭐⭐⭐",
     image: "/Images/popular1.webp",
@@ -49,6 +49,8 @@ const hotelsData = [
 
 const Popularhotel = () => {
   const {
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
@@ -58,7 +60,6 @@ const Popularhotel = () => {
     sortBy,
   } = useSelector((state) => state.hotels);
   const [filteredHotels, setFilteredHotels] = useState([]);
-
   const filterHotels = () => {
     let assignValue = hotelsData.filter(
       (hotel) =>
@@ -67,6 +68,8 @@ const Popularhotel = () => {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
@@ -84,6 +87,8 @@ const Popularhotel = () => {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
@@ -91,7 +96,6 @@ const Popularhotel = () => {
     isAscending,
     sortBy,
   ]);
-
   return (
     <>
       <div className="container border-top">
@@ -118,7 +122,6 @@ const Popularhotel = () => {
                       </small>
                     </p>
                     <p>{hotel.Star}</p>
-                    <p className="fw-medium">{hotel.Country}</p>
                     <p className="fw-medium">{hotel.Country}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">

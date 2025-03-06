@@ -48,6 +48,8 @@ const hotelsData = [
 ];
 const Fourstar = () => {
   const {
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
@@ -66,6 +68,8 @@ const Fourstar = () => {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
@@ -84,6 +88,8 @@ const Fourstar = () => {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,

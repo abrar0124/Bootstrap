@@ -8,6 +8,7 @@ import Home from "../components/Home";
 import Londonbreakfast from "../components/Londonbreakfast";
 import Luxuryhotel from "../components/Luxuryhotel";
 import Popularhotel from "../components/Popularhotel";
+import Reviews from "../components/Reviews";
 import Upcomingevent from "../components/Upcomingevents";
 
 function FilteredCountry() {
@@ -22,6 +23,7 @@ function FilteredCountry() {
       <Luxuryhotel />
       <Upcomingevent />
       <Popularhotel />
+      <Reviews />
       <Londonbreakfast />
     </>
   );

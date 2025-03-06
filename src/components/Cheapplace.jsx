@@ -47,6 +47,8 @@ const hotelsData = [
 ];
 function Cheapplace() {
   const {
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
@@ -65,6 +67,8 @@ function Cheapplace() {
         (selectedStars.length === 0 ||
           selectedStars.includes(hotel.Star.length)) &&
         hotel.price >= selectedPrice &&
+        (minprice === null || hotel.price >= minprice) &&
+        (maxprice === null || hotel.price <= maxprice) &&
         (selectedDate == null || hotel.availableDates === selectedDate) &&
         (selectedCountry === null || hotel.Country === selectedCountry)
     );
@@ -82,6 +86,8 @@ function Cheapplace() {
   useEffect(() => {
     filterHotels();
   }, [
+    minprice,
+    maxprice,
     searchQuery,
     selectedStars,
     selectedPrice,
