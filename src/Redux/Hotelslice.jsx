@@ -28,6 +28,9 @@ const hotelSlice = createSlice({
         ? (state.selectedStars = state.selectedStars.filter((s) => s !== star))
         : state.selectedStars.push(star);
     },
+    clearStarFilter: (state) => {
+      state.selectedStars = [];
+    },
     setPriceFilter: (state, action) => {
       state.selectedPrice = action.payload;
     },
@@ -53,6 +56,7 @@ export const {
   setSearchQuery,
   toggleStarFilter,
   setPriceFilter,
+  clearStarFilter,
   setSelectedDate,
   setSortBy,
   toggleSortOrder,
