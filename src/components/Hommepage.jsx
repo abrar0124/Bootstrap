@@ -20,7 +20,7 @@ function Hommepage() {
               to="/FilteredCountry"
               onClick={() => {
                 dispatch(setSelectedCountry(product.Country));
-                console.log("Selected Country: ", product.Country); // ✅ Check Redux update
+                console.log("Selected Country: ", product.Country);
               }}
               className="text-decoration-none"
             >
