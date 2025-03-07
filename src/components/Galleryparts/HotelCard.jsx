@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Text from "../Text";
+import "./scss.scss";
 
 const HotelCard = ({ hotel }) => {
   return (
-    <div className="card mb-4 p-3 shadow-sm">
+    <div className="card mb-4 p-3 shadow-sm mt-2 c">
       <div className="row g-0">
         <div className="col-md-4">
           <Link to={`/details/${hotel.id}`}>

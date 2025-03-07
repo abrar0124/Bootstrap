@@ -4,8 +4,6 @@ import Mainhomepage from "./Pages/Mainhomepage";
 import Maindetailpage from "./Pages/Maindetailpage";
 import Hotelbook from "./Pages/Hotelbook";
 import Homepage from "./Pages/Homepage";
-import Gallery from "./components/Gallery";
-import Countryname from "./Pages/Countryname";
 import FilteredCountry from "./Pages/Filteredcountry";
 
 function App() {
