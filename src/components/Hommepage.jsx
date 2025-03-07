@@ -7,7 +7,7 @@ function Hommepage() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.hotels.products);
   return (
-    <div className="c">
+    <div>
       <h2 className="cv">Top destinations</h2>
       <p className="j text-danger">
         Discover the beauty of this world: experience the best cities to feed
