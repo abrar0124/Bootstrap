@@ -75,22 +75,21 @@ const Filters = () => {
             <label className="form-check-label">{star} stars</label>
           </div>
         ))}
-      </div>
-
-      {/* Price Selection */}
-      <div className="mt-3" style={{ width: "80%", marginLeft: "20%" }}>
-        <Text type="h5" content="Price PKR" />
-        <input
-          type="number"
-          className="form-control"
-          placeholder="Enter price..."
-          value={selectedPrice}
-          onChange={(e) => {
-            const price = e.target.value ? Number(e.target.value) : null;
-            dispatch(setPriceFilter(price));
-          }}
-          onWheel={(e) => e.target.blur()}
-        />
+        {/* Price Selection */}
+        <div className="mt-3">
+          <Text type="h5" content="Price PKR" />
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Enter price..."
+            value={selectedPrice}
+            onChange={(e) => {
+              const price = e.target.value ? Number(e.target.value) : null;
+              dispatch(setPriceFilter(price));
+            }}
+            onWheel={(e) => e.target.blur()}
+          />
+        </div>
       </div>
     </>
   );

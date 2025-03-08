@@ -8,8 +8,11 @@ function MinMaxselection() {
     <>
       <div className="d-flex gap-3" style={{ marginLeft: "20%" }}>
         <div>
+          <label className="fw-medium" style={{ fontSize: "14px" }}>
+            Min
+          </label>
           <input
-            className="form-control"
+            className="form-control border-dark"
             value={minprice}
             type="number"
             placeholder="Min price"
@@ -21,11 +24,14 @@ function MinMaxselection() {
           />
         </div>
         <div>
+          <label className="fw-medium" style={{ fontSize: "14px" }}>
+            Max
+          </label>
           <input
-            className="form-control"
+            className="form-control border-dark"
             value={maxprice}
             type="number"
-            placeholder="Max price"
+            placeholder="Max price "
             onChange={(e) => {
               const price = e.target.value ? Number(e.target.value) : null;
               dispatch(setMaxprice(price));
