@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSelectedCountry } from "../Redux/Hotelslice"; // ✅ Import kiya
+import { setSelectedCountry } from "../Redux/Hotelslice";
 import "./customscss.scss";
 
 function Hommepage() {
