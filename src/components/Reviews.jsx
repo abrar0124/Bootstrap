@@ -7,7 +7,7 @@ const hotelsData = [
   {
     name: "Belgrave Hotel Oval",
     price: 56000,
-    Star: "⭐⭐⭐",
+    stars: 3,
     rating: 4,
     review: "6.9 Good",
     reviewsCount: 434,
@@ -17,7 +17,7 @@ const hotelsData = [
   {
     name: "B’Shan Apartments",
     price: 33000,
-    Star: "⭐⭐",
+    stars: 2,
     rating: 4,
     review: "5.9 Review Score",
     reviewsCount: 3,
@@ -27,7 +27,7 @@ const hotelsData = [
   {
     name: "Park Avenue Hyde Park",
     price: 45000,
-    Star: "⭐",
+    stars: 1,
     rating: 4,
     review: "6.7 Good",
     reviewsCount: 2064,
@@ -55,8 +55,7 @@ const Reviews = () => {
       (hotel) =>
         (searchQuery === "" ||
           hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
-        (selectedStars.length === 0 ||
-          selectedStars.includes(hotel.Star.length)) &&
+        (selectedStars.length === 0 || selectedStars.includes(hotel.stars)) &&
         hotel.price >= selectedPrice &&
         (minprice === null || hotel.price >= minprice) &&
         (maxprice === null || hotel.price <= maxprice) &&
@@ -106,7 +105,20 @@ const Reviews = () => {
                             Based on {hotel.reviewsCount} reviews
                           </small>
                         </p>
-                        <p>{hotel.Star}</p>
+                        <div className="d-flex flex-wrap">
+                          {[1, 2, 3, 4, 5].map((_, index) => (
+                            <img
+                              key={index}
+                              src={
+                                index < hotel.stars
+                                  ? "/Images/star.png"
+                                  : "/Images/gray.jpeg"
+                              }
+                              width="20"
+                              className="me-1"
+                            />
+                          ))}
+                        </div>
                         <p className="mt-2">{hotel.description}</p>
                         <p className="text-muted">
                           <small>{hotel.reviewer}</small>

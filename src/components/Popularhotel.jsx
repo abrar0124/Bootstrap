@@ -10,7 +10,7 @@ const hotelsData = [
     Country: "America",
     price: 31000,
     availableDates: "2025-03-16",
-    Star: "⭐⭐⭐⭐⭐",
+    stars: 5,
     image: "/Images/popular1.webp",
     rating: 4,
     review: "6.9 Good",
@@ -23,7 +23,7 @@ const hotelsData = [
     name: "B’Shan Apartments",
     Country: "Austria",
     availableDates: "2025-03-17",
-    Star: "⭐⭐⭐",
+    stars: 4,
     image: "/Images/popular2.webp",
     rating: 4,
     review: "5.9 Review Score",
@@ -36,7 +36,7 @@ const hotelsData = [
     name: "Park Avenue Hyde Park",
     Country: "Japan",
     availableDates: "2025-03-18",
-    Star: "⭐⭐",
+    stars: 2,
     image: "/Images/popular3.webp",
     rating: 4,
     review: "6.7 Good",
@@ -65,8 +65,7 @@ const Popularhotel = () => {
       (hotel) =>
         (searchQuery === "" ||
           hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
-        (selectedStars.length === 0 ||
-          selectedStars.includes(hotel.Star.length)) &&
+        (selectedStars.length === 0 || selectedStars.includes(hotel.stars)) &&
         hotel.price >= selectedPrice &&
         (minprice === null || hotel.price >= minprice) &&
         (maxprice === null || hotel.price <= maxprice) &&
@@ -121,7 +120,20 @@ const Popularhotel = () => {
                         Based on {hotel.reviewsCount} reviews
                       </small>
                     </p>
-                    <p>{hotel.Star}</p>
+                    <div className="d-flex flex-wrap">
+                      {[1, 2, 3, 4, 5].map((_, index) => (
+                        <img
+                          key={index}
+                          src={
+                            index < hotel.stars
+                              ? "/Images/star.png"
+                              : "/Images/gray.jpeg"
+                          }
+                          width="20"
+                          className="me-1"
+                        />
+                      ))}
+                    </div>
                     <p className="fw-medium">{hotel.Country}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">

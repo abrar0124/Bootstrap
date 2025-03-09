@@ -7,6 +7,7 @@ function MinMaxselection() {
   return (
     <>
       <div className="d-flex gap-3" style={{ marginLeft: "20%" }}>
+        <p></p>
         <div>
           <label className="fw-medium" style={{ fontSize: "14px" }}>
             Min

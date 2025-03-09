@@ -8,7 +8,7 @@ const hotelsData = [
     name: "Belgrave Hotel Oval",
     Country: "Canada",
     price: 64000,
-    Star: "⭐⭐⭐",
+    stars: 3,
     availableDates: "2025-03-18",
     image: "/Images/break1.webp",
     rating: 4,
@@ -21,7 +21,7 @@ const hotelsData = [
     price: 33000,
     name: "B’Shan Apartments",
     Country: "Austria",
-    Star: "⭐⭐⭐⭐",
+    stars: 4,
     availableDates: "2025-03-19",
     image: "/Images/break2.jpg",
     rating: 4,
@@ -35,7 +35,7 @@ const hotelsData = [
     Country: "Germany",
     price: 34000,
     availableDates: "2025-03-20",
-    Star: "⭐⭐⭐⭐⭐",
+    stars: 5,
     image: "/Images/break3.webp",
     rating: 4,
     review: "6.7 Good",
@@ -65,8 +65,7 @@ const Londonbreakfast = () => {
       (hotel) =>
         (searchQuery === "" ||
           hotel.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
-        (selectedStars.length === 0 ||
-          selectedStars.includes(hotel.Star.length)) &&
+        (selectedStars.length === 0 || selectedStars.includes(hotel.stars)) &&
         hotel.price >= selectedPrice &&
         (minprice === null || hotel.price >= minprice) &&
         (maxprice === null || hotel.price <= maxprice) &&
@@ -123,7 +122,20 @@ const Londonbreakfast = () => {
                         Based on {hotel.reviewsCount} reviews
                       </small>
                     </p>
-                    <p>{hotel.Star}</p>
+                    <div className="d-flex flex-wrap">
+                      {[1, 2, 3, 4, 5].map((_, index) => (
+                        <img
+                          key={index}
+                          src={
+                            index < hotel.stars
+                              ? "/Images/star.png"
+                              : "/Images/gray.jpeg"
+                          }
+                          width="20"
+                          className="me-1"
+                        />
+                      ))}
+                    </div>
                     <p className="fw-medium">{hotel.Country}</p>
                     <p className="mt-2">{hotel.description}</p>
                     <p className="text-muted">
